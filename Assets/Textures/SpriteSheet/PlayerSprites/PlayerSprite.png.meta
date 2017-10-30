@@ -1,0 +1,2544 @@
+fileFormatVersion: 2
+guid: 98cee54c6ded8e1458db6d9e2074553f
+timeCreated: 1503484157
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: PlayerSprite_0
+    21300002: PlayerSprite_1
+    21300004: PlayerSprite_2
+    21300006: PlayerSprite_3
+    21300008: PlayerSprite_4
+    21300010: PlayerSprite_5
+    21300012: PlayerSprite_6
+    21300014: PlayerSprite_7
+    21300016: PlayerSprite_8
+    21300018: PlayerSprite_9
+    21300020: PlayerSprite_10
+    21300022: PlayerSprite_11
+    21300024: PlayerSprite_12
+    21300026: PlayerSprite_13
+    21300028: PlayerSprite_14
+    21300030: PlayerSprite_15
+    21300032: PlayerSprite_16
+    21300034: PlayerSprite_17
+    21300036: PlayerSprite_18
+    21300038: PlayerSprite_19
+    21300040: PlayerSprite_20
+    21300042: PlayerSprite_21
+    21300044: PlayerSprite_22
+    21300046: PlayerSprite_23
+    21300048: PlayerSprite_24
+    21300050: PlayerSprite_25
+    21300052: PlayerSprite_26
+    21300054: PlayerSprite_27
+    21300056: PlayerSprite_28
+    21300058: PlayerSprite_29
+    21300060: PlayerSprite_30
+    21300062: PlayerSprite_31
+    21300064: PlayerSprite_32
+    21300066: PlayerSprite_33
+    21300068: PlayerSprite_34
+    21300070: PlayerSprite_35
+    21300072: PlayerSprite_36
+    21300074: PlayerSprite_37
+    21300076: PlayerSprite_38
+    21300078: PlayerSprite_39
+    21300080: PlayerSprite_40
+    21300082: PlayerSprite_41
+    21300084: PlayerSprite_42
+    21300086: PlayerSprite_43
+    21300088: PlayerSprite_44
+    21300090: PlayerSprite_45
+    21300092: PlayerSprite_46
+    21300094: PlayerSprite_47
+    21300096: PlayerSprite_48
+    21300098: PlayerSprite_49
+    21300100: PlayerSprite_50
+    21300102: PlayerSprite_51
+    21300104: PlayerSprite_52
+    21300106: PlayerSprite_53
+    21300108: PlayerSprite_54
+    21300110: PlayerSprite_55
+    21300112: PlayerSprite_56
+    21300114: PlayerSprite_57
+    21300116: PlayerSprite_58
+    21300118: PlayerSprite_59
+    21300120: PlayerSprite_60
+    21300122: PlayerSprite_61
+    21300124: PlayerSprite_62
+    21300126: PlayerSprite_63
+    21300128: PlayerSprite_64
+    21300130: PlayerSprite_65
+    21300132: PlayerSprite_66
+    21300134: PlayerSprite_67
+    21300136: PlayerSprite_68
+    21300138: PlayerSprite_69
+    21300140: PlayerSprite_70
+    21300142: PlayerSprite_71
+    21300144: PlayerSprite_72
+    21300146: PlayerSprite_73
+    21300148: PlayerSprite_74
+    21300150: PlayerSprite_75
+    21300152: PlayerSprite_76
+    21300154: PlayerSprite_77
+    21300156: PlayerSprite_78
+    21300158: PlayerSprite_79
+    21300160: PlayerSprite_80
+    21300162: PlayerSprite_81
+    21300164: PlayerSprite_82
+    21300166: PlayerSprite_83
+    21300168: PlayerSprite_84
+    21300170: PlayerSprite_85
+    21300172: PlayerSprite_86
+    21300174: PlayerSprite_87
+    21300176: PlayerSprite_88
+    21300178: PlayerSprite_89
+    21300180: PlayerSprite_90
+    21300182: PlayerSprite_91
+    21300184: PlayerSprite_92
+    21300186: PlayerSprite_93
+    21300188: PlayerSprite_94
+    21300190: PlayerSprite_95
+    21300192: PlayerSprite_96
+    21300194: PlayerSprite_97
+    21300196: PlayerSprite_98
+    21300198: PlayerSprite_99
+    21300200: PlayerSprite_100
+    21300202: PlayerSprite_101
+    21300204: PlayerSprite_102
+    21300206: PlayerSprite_103
+    21300208: PlayerSprite_104
+    21300210: PlayerSprite_105
+    21300212: PlayerSprite_106
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: PlayerSprite_0
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 935
+        width: 47
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -3.5, y: 30}
+        - {x: -23.5, y: 2}
+        - {x: -23.5, y: -33}
+        - {x: 23.5, y: -33}
+        - {x: 23.5, y: 12}
+        - {x: 16.5, y: 30}
+      - - {x: 3.5, y: 33}
+        - {x: 3.5, y: 31}
+        - {x: 5.5, y: 29}
+        - {x: 7.5, y: 29}
+        - {x: 9.5, y: 31}
+        - {x: 9.5, y: 33}
+    - name: PlayerSprite_1
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 935
+        width: 43
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 21.5, y: 29.5}
+        - {x: -3.5, y: 29.5}
+        - {x: -20.5, y: 2.5}
+        - {x: -21.5, y: -7.5}
+        - {x: -21.5, y: -32.5}
+        - {x: 21.5, y: -32.5}
+      - - {x: 5.5, y: 30.5}
+        - {x: 5.5, y: 32.5}
+        - {x: 0.5, y: 32.5}
+        - {x: 2.5, y: 29.5}
+    - name: PlayerSprite_2
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 935
+        width: 44
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -7, y: 30.5}
+        - {x: -22, y: 8.5}
+        - {x: -22, y: -30.5}
+        - {x: 22, y: -30.5}
+        - {x: 22, y: 20.5}
+        - {x: 11, y: 30.5}
+    - name: PlayerSprite_3
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 935
+        width: 47
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -10.5, y: 30.5}
+        - {x: -23.5, y: -0.5}
+        - {x: -23.5, y: -32.5}
+        - {x: 17.5, y: -32.5}
+        - {x: 23.5, y: -3.5}
+        - {x: 23.5, y: 23.5}
+        - {x: 11.5, y: 30.5}
+      - - {x: -1.5, y: 30.5}
+        - {x: -1.5, y: 32.5}
+        - {x: -6.5, y: 32.5}
+        - {x: -4.5, y: 29.5}
+    - name: PlayerSprite_4
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 935
+        width: 48
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -14, y: 31}
+        - {x: -24, y: 20}
+        - {x: -24, y: -31}
+        - {x: 20, y: -31}
+        - {x: 24, y: -14}
+        - {x: 24, y: 28}
+        - {x: 15, y: 31}
+    - name: PlayerSprite_5
+      rect:
+        serializedVersion: 2
+        x: 265
+        y: 934
+        width: 52
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 15, y: -31.5}
+        - {x: 15, y: -30.5}
+        - {x: 26, y: -8.5}
+        - {x: 26, y: 21.5}
+        - {x: 15, y: 31.5}
+        - {x: -10, y: 31.5}
+        - {x: -23, y: 9.5}
+        - {x: -26, y: -9.5}
+        - {x: -26, y: -31.5}
+        - {x: -20, y: -31.5}
+        - {x: -15, y: -23.5}
+        - {x: -11, y: -17.5}
+        - {x: 3, y: -31.5}
+    - name: PlayerSprite_6
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 935
+        width: 46
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16, y: 30.5}
+        - {x: -23, y: 10.5}
+        - {x: -23, y: -32.5}
+        - {x: 20, y: -32.5}
+        - {x: 23, y: -18.5}
+        - {x: 23, y: 28.5}
+        - {x: 20, y: 30.5}
+      - - {x: 11, y: 30.5}
+        - {x: 11, y: 32.5}
+        - {x: 6, y: 32.5}
+        - {x: 8, y: 29.5}
+    - name: PlayerSprite_7
+      rect:
+        serializedVersion: 2
+        x: 371
+        y: 935
+        width: 49
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 22.5, y: 28.5}
+        - {x: 17.5, y: 30.5}
+        - {x: -10.5, y: 30.5}
+        - {x: -24.5, y: -6.5}
+        - {x: -24.5, y: -30.5}
+        - {x: 18.5, y: -30.5}
+        - {x: 24.5, y: -10.5}
+        - {x: 24.5, y: 18.5}
+    - name: PlayerSprite_8
+      rect:
+        serializedVersion: 2
+        x: 443
+        y: 935
+        width: 46
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -11, y: 28}
+        - {x: -18, y: 11}
+        - {x: -23, y: -5}
+        - {x: -23, y: -28}
+        - {x: 23, y: -28}
+        - {x: 23, y: 25}
+        - {x: 16, y: 28}
+      - - {x: -8, y: -22}
+        - {x: -8, y: -27}
+        - {x: -7, y: -28}
+        - {x: -2, y: -28}
+        - {x: -2, y: -22}
+    - name: PlayerSprite_9
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 856
+        width: 51
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -25.5, y: 32.5}
+        - {x: -25.5, y: -28.5}
+        - {x: -20.5, y: -32.5}
+        - {x: 2.5, y: -32.5}
+        - {x: 25.5, y: 3.5}
+        - {x: 25.5, y: 21.5}
+        - {x: 15.5, y: 32.5}
+    - name: PlayerSprite_10
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 857
+        width: 48
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 19, y: 31}
+        - {x: -19, y: 31}
+        - {x: -24, y: 25}
+        - {x: -24, y: -8}
+        - {x: -16, y: -11}
+        - {x: -14, y: -11}
+        - {x: -16, y: -11}
+        - {x: -20, y: -15}
+        - {x: -24, y: -20}
+        - {x: -24, y: -31}
+        - {x: 19, y: -31}
+        - {x: 24, y: -12}
+        - {x: 24, y: 20}
+    - name: PlayerSprite_11
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 856
+        width: 56
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -17, y: 31}
+        - {x: -24, y: 25}
+        - {x: -15, y: 12}
+        - {x: -13, y: 10}
+        - {x: -11, y: 10}
+        - {x: -9, y: 11}
+        - {x: -7, y: 11}
+        - {x: -13, y: 9}
+        - {x: -13, y: 7}
+        - {x: -28, y: -8}
+        - {x: -28, y: -26}
+        - {x: -11, y: -31}
+        - {x: 28, y: -31}
+        - {x: 28, y: 31}
+    - name: PlayerSprite_12
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 856
+        width: 48
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20, y: 31}
+        - {x: -24, y: 25}
+        - {x: -24, y: 20}
+        - {x: -21, y: 20}
+        - {x: -24, y: 9}
+        - {x: -24, y: -23}
+        - {x: -21, y: -30}
+        - {x: -21, y: -31}
+        - {x: -2, y: -31}
+        - {x: 24, y: 18}
+        - {x: 24, y: 31}
+    - name: PlayerSprite_13
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 857
+        width: 45
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 22.5, y: 33}
+        - {x: -13.5, y: 33}
+        - {x: -22.5, y: 20}
+        - {x: -22.5, y: -33}
+        - {x: -10.5, y: -33}
+        - {x: 20.5, y: -30}
+        - {x: 22.5, y: -27}
+      - - {x: -10.5, y: -1}
+        - {x: -12.5, y: -3}
+        - {x: -12.5, y: -5}
+        - {x: -10.5, y: -7}
+        - {x: -8.5, y: -7}
+        - {x: -6.5, y: -5}
+        - {x: -6.5, y: -3}
+        - {x: -8.5, y: -1}
+    - name: PlayerSprite_14
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 857
+        width: 48
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 15, y: 1.5}
+        - {x: 15, y: 2.5}
+        - {x: 20, y: -2.5}
+        - {x: 24, y: 3.5}
+        - {x: 24, y: 26.5}
+        - {x: 22, y: 33.5}
+        - {x: 9, y: 33.5}
+        - {x: 0, y: 31.5}
+        - {x: -15, y: 22.5}
+        - {x: -18, y: 19.5}
+        - {x: -24, y: 4.5}
+        - {x: -24, y: -24.5}
+        - {x: 2, y: -23.5}
+        - {x: 12, y: -33.5}
+        - {x: 24, y: -33.5}
+        - {x: 24, y: -17.5}
+        - {x: 19, y: -6.5}
+    - name: PlayerSprite_15
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 770
+        width: 71
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 0.5, y: 26.5}
+        - {x: -35.5, y: 19.5}
+        - {x: -35.5, y: 8.5}
+        - {x: -12.5, y: -34.5}
+        - {x: 34.5, y: -34.5}
+        - {x: 35.5, y: -33.5}
+        - {x: 35.5, y: 23.5}
+        - {x: 29.5, y: 26.5}
+      - - {x: 20.5, y: 3.5}
+        - {x: 23.5, y: 0.5}
+        - {x: 26.5, y: 1.5}
+        - {x: 26.5, y: 3.5}
+        - {x: 23.5, y: 6.5}
+        - {x: 21.5, y: 6.5}
+      - - {x: 6.5, y: 34.5}
+        - {x: 6.5, y: 32.5}
+        - {x: 8.5, y: 30.5}
+        - {x: 10.5, y: 30.5}
+        - {x: 12.5, y: 32.5}
+        - {x: 12.5, y: 34.5}
+    - name: PlayerSprite_16
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 770
+        width: 50
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 18, y: -4.5}
+        - {x: 15, y: -4.5}
+        - {x: 13, y: -5.5}
+        - {x: 15, y: -3.5}
+        - {x: 14, y: -0.5}
+        - {x: 20, y: 1.5}
+        - {x: 25, y: 4.5}
+        - {x: 25, y: 14.5}
+        - {x: 23, y: 16.5}
+        - {x: 14, y: 22.5}
+        - {x: -1, y: 21.5}
+        - {x: -4, y: 18.5}
+        - {x: -20, y: 39.5}
+        - {x: -25, y: 39.5}
+        - {x: -25, y: -39.5}
+        - {x: 21, y: -39.5}
+        - {x: 21, y: -9.5}
+    - name: PlayerSprite_17
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 770
+        width: 80
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -1, y: 37}
+        - {x: -22, y: 37}
+        - {x: -22, y: 35}
+        - {x: -8, y: 29}
+        - {x: -40, y: -13}
+        - {x: -40, y: -37}
+        - {x: 17, y: -37}
+        - {x: 40, y: -10}
+        - {x: 40, y: 21}
+        - {x: 23, y: 34}
+    - name: PlayerSprite_18
+      rect:
+        serializedVersion: 2
+        x: 244
+        y: 836
+        width: 7
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: PlayerSprite_19
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 770
+        width: 51
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 17.5, y: 14.5}
+        - {x: 17.5, y: 15.5}
+        - {x: 22.5, y: 16.5}
+        - {x: 25.5, y: 17.5}
+        - {x: 25.5, y: 25.5}
+        - {x: 12.5, y: 32.5}
+        - {x: -10.5, y: 32.5}
+        - {x: -25.5, y: 19.5}
+        - {x: -25.5, y: -32.5}
+        - {x: 25.5, y: -32.5}
+        - {x: 25.5, y: 1.5}
+        - {x: 22.5, y: 12.5}
+        - {x: 15.5, y: 10.5}
+        - {x: 13.5, y: 8.5}
+    - name: PlayerSprite_20
+      rect:
+        serializedVersion: 2
+        x: 295
+        y: 770
+        width: 82
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 14, y: -18.5}
+        - {x: 15, y: -18.5}
+        - {x: 18, y: -17.5}
+        - {x: 37, y: -8.5}
+        - {x: 41, y: 2.5}
+        - {x: 41, y: 28.5}
+        - {x: 36, y: 31.5}
+        - {x: 22, y: 31.5}
+        - {x: 21, y: 29.5}
+        - {x: -1, y: 26.5}
+        - {x: -41, y: -9.5}
+        - {x: -41, y: -14.5}
+        - {x: -38, y: -16.5}
+        - {x: -41, y: -26.5}
+        - {x: -41, y: -31.5}
+        - {x: 12, y: -31.5}
+        - {x: 21, y: -28.5}
+        - {x: 19, y: -19.5}
+        - {x: 16, y: -18.5}
+    - name: PlayerSprite_21
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 770
+        width: 50
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 24, y: 27.5}
+        - {x: -6, y: 27.5}
+        - {x: -25, y: 20.5}
+        - {x: -25, y: 8.5}
+        - {x: -15, y: 7.5}
+        - {x: -25, y: -15.5}
+        - {x: -25, y: -27.5}
+        - {x: 21, y: -27.5}
+        - {x: 25, y: -17.5}
+        - {x: 25, y: 25.5}
+      - - {x: 5, y: -13.5}
+        - {x: 8, y: -12.5}
+        - {x: 8, y: -9.5}
+        - {x: 5, y: -8.5}
+        - {x: 3, y: -10.5}
+    - name: PlayerSprite_22
+      rect:
+        serializedVersion: 2
+        x: 460
+        y: 770
+        width: 52
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 25, y: -2.5}
+        - {x: 26, y: -0.5}
+        - {x: 26, y: 21.5}
+        - {x: -4, y: 32.5}
+        - {x: -13, y: 32.5}
+        - {x: -26, y: -10.5}
+        - {x: -26, y: -32.5}
+        - {x: 17, y: -32.5}
+        - {x: 26, y: -24.5}
+        - {x: 26, y: -3.5}
+        - {x: 25, y: -1.5}
+    - name: PlayerSprite_23
+      rect:
+        serializedVersion: 2
+        x: 518
+        y: 770
+        width: 90
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 42, y: 2.5}
+        - {x: 45, y: 7.5}
+        - {x: 45, y: 21.5}
+        - {x: 19, y: 30.5}
+        - {x: -13, y: 30.5}
+        - {x: -12, y: 27.5}
+        - {x: -7, y: 25.5}
+        - {x: -35, y: 12.5}
+        - {x: -45, y: -4.5}
+        - {x: -45, y: -27.5}
+        - {x: -39, y: -30.5}
+        - {x: 18, y: -30.5}
+        - {x: 18, y: -28.5}
+        - {x: 17, y: -26.5}
+      - - {x: -4, y: -21.5}
+        - {x: -1, y: -20.5}
+        - {x: -1, y: -17.5}
+        - {x: -4, y: -16.5}
+        - {x: -6, y: -18.5}
+    - name: PlayerSprite_24
+      rect:
+        serializedVersion: 2
+        x: 619
+        y: 770
+        width: 96
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 0, y: 31.5}
+        - {x: -13, y: 29.5}
+        - {x: -48, y: 0.5}
+        - {x: -48, y: -17.5}
+        - {x: -34, y: -31.5}
+        - {x: 21, y: -31.5}
+        - {x: 48, y: -0.5}
+        - {x: 48, y: 23.5}
+        - {x: 43, y: 31.5}
+    - name: PlayerSprite_25
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 657
+        width: 78
+        height: 103
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 12, y: 5.5}
+        - {x: 9, y: 5.5}
+        - {x: 39, y: 37.5}
+        - {x: 39, y: 51.5}
+        - {x: -6, y: 51.5}
+        - {x: -24, y: 41.5}
+        - {x: -39, y: 13.5}
+        - {x: -39, y: -7.5}
+        - {x: -34, y: -28.5}
+        - {x: -28, y: -22.5}
+        - {x: -39, y: -41.5}
+        - {x: -39, y: -51.5}
+        - {x: 4, y: -51.5}
+        - {x: 3, y: -40.5}
+        - {x: 15, y: -3.5}
+    - name: PlayerSprite_26
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 657
+        width: 78
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 4, y: -11}
+        - {x: 2, y: -11}
+        - {x: 0, y: -13}
+        - {x: 0, y: -15}
+        - {x: 0, y: -11}
+        - {x: 1, y: -10}
+        - {x: 16, y: -1}
+        - {x: 16, y: 6}
+        - {x: 39, y: 44}
+        - {x: 39, y: 49}
+        - {x: 32, y: 49}
+        - {x: -16, y: 27}
+        - {x: -31, y: -8}
+        - {x: -39, y: -39}
+        - {x: -39, y: -49}
+        - {x: 3, y: -49}
+        - {x: 7, y: -20}
+        - {x: 7, y: -12}
+      - - {x: -12, y: 49}
+        - {x: -24, y: 39}
+        - {x: -24, y: 34}
+        - {x: -22, y: 33}
+        - {x: -17, y: 33}
+        - {x: 8, y: 47}
+        - {x: 8, y: 49}
+    - name: PlayerSprite_27
+      rect:
+        serializedVersion: 2
+        x: 164
+        y: 741
+        width: 56
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: PlayerSprite_28
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 657
+        width: 50
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 25, y: -2.5}
+        - {x: 25, y: 25.5}
+        - {x: 19, y: 30.5}
+        - {x: -9, y: 30.5}
+        - {x: -17, y: 26.5}
+        - {x: -25, y: -13.5}
+        - {x: -25, y: -30.5}
+        - {x: -17, y: -30.5}
+        - {x: -8, y: -17.5}
+        - {x: 4, y: -30.5}
+        - {x: 19, y: -30.5}
+    - name: PlayerSprite_29
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 657
+        width: 64
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 32, y: 19.5}
+        - {x: 32, y: 31.5}
+        - {x: -22, y: 31.5}
+        - {x: -32, y: 5.5}
+        - {x: -32, y: -31.5}
+        - {x: -26, y: -31.5}
+        - {x: -24, y: -30.5}
+        - {x: -13, y: -31.5}
+        - {x: 12, y: -31.5}
+    - name: PlayerSprite_30
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 570
+        width: 51
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 21.5, y: 26.5}
+        - {x: 5.5, y: 32.5}
+        - {x: -21.5, y: 32.5}
+        - {x: -25.5, y: 15.5}
+        - {x: -25.5, y: -32.5}
+        - {x: 17.5, y: -32.5}
+        - {x: 18.5, y: -29.5}
+        - {x: 25.5, y: -10.5}
+        - {x: 25.5, y: 20.5}
+    - name: PlayerSprite_31
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 569
+        width: 46
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -11, y: 35.5}
+        - {x: -23, y: 20.5}
+        - {x: -23, y: -35.5}
+        - {x: 23, y: -35.5}
+        - {x: 23, y: 35.5}
+      - - {x: 1, y: -33.5}
+        - {x: 1, y: -35.5}
+        - {x: 7, y: -35.5}
+        - {x: 7, y: -33.5}
+        - {x: 5, y: -31.5}
+        - {x: 3, y: -31.5}
+      - - {x: 5, y: -28.5}
+        - {x: 8, y: -27.5}
+        - {x: 8, y: -24.5}
+        - {x: 5, y: -23.5}
+        - {x: 3, y: -25.5}
+      - - {x: 15, y: 2.5}
+        - {x: 18, y: 3.5}
+        - {x: 18, y: 6.5}
+        - {x: 15, y: 7.5}
+        - {x: 13, y: 5.5}
+    - name: PlayerSprite_32
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 570
+        width: 64
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -31, y: 35.5}
+        - {x: -32, y: 24.5}
+        - {x: -32, y: 3.5}
+        - {x: -25, y: 1.5}
+        - {x: -32, y: -25.5}
+        - {x: -32, y: -35.5}
+        - {x: 23, y: -35.5}
+        - {x: 23, y: 35.5}
+      - - {x: 25, y: 11.5}
+        - {x: 24, y: 9.5}
+        - {x: 25, y: 5.5}
+        - {x: 32, y: 5.5}
+        - {x: 32, y: 11.5}
+    - name: PlayerSprite_33
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 570
+        width: 57
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 17.5, y: 34.5}
+        - {x: -13.5, y: 34.5}
+        - {x: -16.5, y: 33.5}
+        - {x: -28.5, y: 20.5}
+        - {x: -28.5, y: -34.5}
+        - {x: 26.5, y: -34.5}
+        - {x: 28.5, y: -29.5}
+        - {x: 28.5, y: 24.5}
+    - name: PlayerSprite_34
+      rect:
+        serializedVersion: 2
+        x: 247
+        y: 610
+        width: 28
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: PlayerSprite_35
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 570
+        width: 87
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -43.5, y: 32}
+        - {x: -43.5, y: -32}
+        - {x: 4.5, y: -32}
+        - {x: 43.5, y: 0}
+        - {x: 43.5, y: 13}
+        - {x: 5.5, y: 32}
+      - - {x: -13.5, y: -18}
+        - {x: -10.5, y: -17}
+        - {x: -10.5, y: -14}
+        - {x: -13.5, y: -13}
+        - {x: -15.5, y: -15}
+    - name: PlayerSprite_36
+      rect:
+        serializedVersion: 2
+        x: 370
+        y: 570
+        width: 95
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 47.5, y: 16}
+        - {x: -0.5, y: 32}
+        - {x: -44.5, y: 32}
+        - {x: -44.5, y: -32}
+        - {x: 2.5, y: -32}
+        - {x: 10.5, y: -16}
+        - {x: 43.5, y: -5}
+        - {x: 47.5, y: -1}
+      - - {x: -47.5, y: 9}
+        - {x: -45.5, y: 9}
+        - {x: -43.5, y: 11}
+        - {x: -44.5, y: 14}
+        - {x: -47.5, y: 14}
+      - - {x: -40.5, y: 9}
+        - {x: -37.5, y: 10}
+        - {x: -37.5, y: 13}
+        - {x: -40.5, y: 14}
+        - {x: -42.5, y: 12}
+      - - {x: -35.5, y: 9}
+        - {x: -32.5, y: 10}
+        - {x: -32.5, y: 13}
+        - {x: -35.5, y: 14}
+        - {x: -37.5, y: 12}
+    - name: PlayerSprite_37
+      rect:
+        serializedVersion: 2
+        x: 472
+        y: 570
+        width: 84
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -26, y: 31.5}
+        - {x: -41, y: 31.5}
+        - {x: -42, y: 26.5}
+        - {x: -42, y: -31.5}
+        - {x: 5, y: -31.5}
+        - {x: 42, y: 3.5}
+        - {x: 42, y: 8.5}
+        - {x: 25, y: 17.5}
+    - name: PlayerSprite_38
+      rect:
+        serializedVersion: 2
+        x: 561
+        y: 570
+        width: 89
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 25.5, y: -4}
+        - {x: 44.5, y: 1}
+        - {x: 44.5, y: 11}
+        - {x: 1.5, y: 26}
+        - {x: -30.5, y: 32}
+        - {x: -44.5, y: 32}
+        - {x: -44.5, y: -32}
+        - {x: -1.5, y: -32}
+        - {x: 6.5, y: -12}
+        - {x: 6.5, y: -7}
+      - - {x: 4.5, y: -3}
+        - {x: 7.5, y: -2}
+        - {x: 7.5, y: 1}
+        - {x: 4.5, y: 2}
+        - {x: 2.5, y: 0}
+    - name: PlayerSprite_39
+      rect:
+        serializedVersion: 2
+        x: 654
+        y: 570
+        width: 78
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -35, y: 30}
+        - {x: -39, y: 26}
+        - {x: -39, y: -16}
+        - {x: -37, y: -30}
+        - {x: 25, y: -30}
+        - {x: 35, y: -15}
+        - {x: 35, y: 24}
+        - {x: 13, y: 30}
+      - - {x: 36, y: 10}
+        - {x: 38, y: 8}
+        - {x: 39, y: 8}
+        - {x: 39, y: 14}
+        - {x: 36, y: 13}
+    - name: PlayerSprite_40
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 495
+        width: 61
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -0.5, y: 20}
+        - {x: -17.5, y: 13}
+        - {x: -24.5, y: 1}
+        - {x: -30.5, y: -10}
+        - {x: -30.5, y: -20}
+        - {x: 28.5, y: -20}
+        - {x: 30.5, y: -16}
+        - {x: 30.5, y: 15}
+        - {x: 25.5, y: 20}
+    - name: PlayerSprite_41
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 490
+        width: 65
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -14.5, y: -23.5}
+        - {x: -14.5, y: -21.5}
+        - {x: -17.5, y: -20.5}
+        - {x: -19.5, y: -23.5}
+      - - {x: -17.5, y: 23.5}
+        - {x: -32.5, y: 1.5}
+        - {x: -32.5, y: -20.5}
+        - {x: 22.5, y: -20.5}
+        - {x: 32.5, y: -11.5}
+        - {x: 32.5, y: 11.5}
+        - {x: 17.5, y: 23.5}
+    - name: PlayerSprite_42
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 495
+        width: 56
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 25, y: -18.5}
+        - {x: 28, y: -11.5}
+        - {x: 28, y: 18.5}
+        - {x: -8, y: 18.5}
+        - {x: -18, y: 13.5}
+        - {x: -28, y: -6.5}
+        - {x: -28, y: -18.5}
+        - {x: 19, y: -18.5}
+        - {x: 20, y: -15.5}
+        - {x: 15, y: -12.5}
+    - name: PlayerSprite_43
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 493
+        width: 60
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -10, y: -17.5}
+        - {x: -10, y: -19.5}
+        - {x: -4, y: -19.5}
+        - {x: -4, y: -17.5}
+        - {x: -6, y: -15.5}
+        - {x: -8, y: -15.5}
+      - - {x: 17, y: 19.5}
+        - {x: -14, y: 19.5}
+        - {x: -26, y: 4.5}
+        - {x: -30, y: -4.5}
+        - {x: -30, y: -19.5}
+        - {x: 29, y: -19.5}
+        - {x: 30, y: -17.5}
+        - {x: 30, y: 4.5}
+        - {x: 25, y: 17.5}
+    - name: PlayerSprite_44
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 495
+        width: 57
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21.5, y: 18}
+        - {x: -28.5, y: 4}
+        - {x: -28.5, y: -18}
+        - {x: 24.5, y: -18}
+        - {x: 28.5, y: -17}
+        - {x: 28.5, y: 18}
+    - name: PlayerSprite_45
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 495
+        width: 53
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -12.5, y: 19}
+        - {x: -26.5, y: 8}
+        - {x: -26.5, y: -19}
+        - {x: 26.5, y: -19}
+        - {x: 26.5, y: 16}
+        - {x: 22.5, y: 19}
+    - name: PlayerSprite_46
+      rect:
+        serializedVersion: 2
+        x: 381
+        y: 495
+        width: 56
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 19, y: -10.5}
+        - {x: 19, y: -14.5}
+        - {x: 25, y: -20.5}
+        - {x: 28, y: -13.5}
+        - {x: 28, y: 5.5}
+        - {x: 20, y: 12.5}
+        - {x: 11, y: 20.5}
+        - {x: 4, y: 20.5}
+        - {x: -10, y: 15.5}
+        - {x: -17, y: 9.5}
+        - {x: -25, y: 1.5}
+        - {x: -28, y: -10.5}
+        - {x: -28, y: -20.5}
+        - {x: 19, y: -20.5}
+        - {x: 20, y: -17.5}
+        - {x: 15, y: -14.5}
+        - {x: 19, y: -12.5}
+    - name: PlayerSprite_47
+      rect:
+        serializedVersion: 2
+        x: 443
+        y: 491
+        width: 57
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -23.5, y: 22}
+        - {x: -28.5, y: 5}
+        - {x: -28.5, y: -22}
+        - {x: 23.5, y: -22}
+        - {x: 28.5, y: -12}
+        - {x: 28.5, y: 8}
+        - {x: 25.5, y: 22}
+    - name: PlayerSprite_48
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 424
+        width: 50
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -13, y: 31}
+        - {x: -25, y: 31}
+        - {x: -25, y: -31}
+        - {x: 25, y: -31}
+        - {x: 25, y: 14}
+        - {x: -3, y: 27}
+    - name: PlayerSprite_49
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 424
+        width: 79
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -22.5, y: 32}
+        - {x: -21.5, y: 29}
+        - {x: -17.5, y: 27}
+        - {x: 11.5, y: 19}
+        - {x: -17.5, y: 4}
+        - {x: -39.5, y: -19}
+        - {x: -39.5, y: -26}
+        - {x: -35.5, y: -26}
+        - {x: -28.5, y: -23}
+        - {x: -24.5, y: -21}
+        - {x: -27.5, y: -23}
+        - {x: -30.5, y: -26}
+        - {x: -34.5, y: -32}
+        - {x: 30.5, y: -32}
+        - {x: 39.5, y: -22}
+        - {x: 39.5, y: 17}
+        - {x: 23.5, y: 32}
+    - name: PlayerSprite_50
+      rect:
+        serializedVersion: 2
+        x: 236
+        y: 479
+        width: 7
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: PlayerSprite_51
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 424
+        width: 52
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 17, y: 22.5}
+        - {x: -12, y: 22.5}
+        - {x: -26, y: 11.5}
+        - {x: -26, y: -22.5}
+        - {x: 26, y: -22.5}
+        - {x: 26, y: 15.5}
+    - name: PlayerSprite_52
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 424
+        width: 70
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -13, y: 22.5}
+        - {x: -35, y: 11.5}
+        - {x: -35, y: -1.5}
+        - {x: -16, y: -22.5}
+        - {x: 35, y: -22.5}
+        - {x: 35, y: 17.5}
+        - {x: 22, y: 22.5}
+    - name: PlayerSprite_53
+      rect:
+        serializedVersion: 2
+        x: 286
+        y: 424
+        width: 86
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -2, y: -19.5}
+        - {x: -3, y: -26.5}
+        - {x: 13, y: -26.5}
+        - {x: 43, y: 0.5}
+        - {x: 43, y: 20.5}
+        - {x: 36, y: 26.5}
+        - {x: 24, y: 26.5}
+        - {x: 24, y: 24.5}
+        - {x: 26, y: 22.5}
+        - {x: -3, y: 23.5}
+        - {x: -43, y: -12.5}
+        - {x: -43, y: -20.5}
+        - {x: -39, y: -20.5}
+        - {x: -33, y: -17.5}
+        - {x: -37, y: -21.5}
+        - {x: -36, y: -26.5}
+        - {x: -17, y: -26.5}
+        - {x: -5, y: -17.5}
+        - {x: 3, y: -17.5}
+        - {x: 1, y: -17.5}
+      - - {x: -41, y: -26.5}
+        - {x: -38, y: -25.5}
+        - {x: -38, y: -22.5}
+        - {x: -41, y: -21.5}
+        - {x: -43, y: -23.5}
+    - name: PlayerSprite_54
+      rect:
+        serializedVersion: 2
+        x: 385
+        y: 424
+        width: 54
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -7, y: 20}
+        - {x: -27, y: 16}
+        - {x: -27, y: -4}
+        - {x: -26, y: -20}
+        - {x: 27, y: -20}
+        - {x: 27, y: 8}
+        - {x: 25, y: 20}
+    - name: PlayerSprite_55
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 424
+        width: 46
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -14, y: 26.5}
+        - {x: -23, y: 26.5}
+        - {x: -23, y: -26.5}
+        - {x: 23, y: -26.5}
+        - {x: 23, y: 1.5}
+        - {x: 16, y: 13.5}
+    - name: PlayerSprite_56
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 426
+        width: 89
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 37.5, y: 14}
+        - {x: 9.5, y: 21}
+        - {x: -22.5, y: 21}
+        - {x: -44.5, y: -11}
+        - {x: -44.5, y: -21}
+        - {x: 32.5, y: -21}
+        - {x: 42.5, y: -8}
+        - {x: 44.5, y: -3}
+        - {x: 44.5, y: 12}
+      - - {x: -4.5, y: -19}
+        - {x: -4.5, y: -20}
+        - {x: -3.5, y: -21}
+        - {x: -0.5, y: -21}
+        - {x: 1.5, y: -19}
+        - {x: 1.5, y: -17}
+        - {x: -1.5, y: -16}
+    - name: PlayerSprite_57
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 424
+        width: 18
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: PlayerSprite_58
+      rect:
+        serializedVersion: 2
+        x: 555
+        y: 424
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: PlayerSprite_59
+      rect:
+        serializedVersion: 2
+        x: 599
+        y: 424
+        width: 96
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 41, y: 23}
+        - {x: 29, y: 23}
+        - {x: 28, y: 21}
+        - {x: 20, y: 23}
+        - {x: -1, y: 23}
+        - {x: -48, y: -11}
+        - {x: -48, y: -23}
+        - {x: -43, y: -23}
+        - {x: -30, y: -17}
+        - {x: -29, y: -15}
+        - {x: -25, y: -14}
+        - {x: -26, y: -14}
+        - {x: -29, y: -16}
+        - {x: -43, y: -23}
+        - {x: 37, y: -23}
+        - {x: 43, y: -16}
+        - {x: 48, y: -4}
+        - {x: 48, y: 19}
+    - name: PlayerSprite_60
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 357
+        width: 54
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 8, y: 21}
+        - {x: -14, y: 21}
+        - {x: -16, y: 11}
+        - {x: -16, y: 2}
+        - {x: -27, y: -11}
+        - {x: -27, y: -21}
+        - {x: 24, y: -21}
+        - {x: 27, y: -12}
+        - {x: 27, y: 8}
+        - {x: 23, y: 15}
+    - name: PlayerSprite_61
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 357
+        width: 46
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -23, y: 25}
+        - {x: -23, y: -25}
+        - {x: 23, y: -25}
+        - {x: 23, y: 25}
+    - name: PlayerSprite_62
+      rect:
+        serializedVersion: 2
+        x: 118
+        y: 357
+        width: 55
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 7.5, y: 27}
+        - {x: -27.5, y: 12}
+        - {x: -27.5, y: -27}
+        - {x: 23.5, y: -27}
+        - {x: 27.5, y: -10}
+        - {x: 27.5, y: 27}
+    - name: PlayerSprite_63
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 357
+        width: 73
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -0.5, y: 26}
+        - {x: -36.5, y: 11}
+        - {x: -36.5, y: -26}
+        - {x: 19.5, y: -26}
+        - {x: 30.5, y: -3}
+        - {x: 30.5, y: 8}
+        - {x: 17.5, y: 26}
+      - - {x: 33.5, y: 6}
+        - {x: 35.5, y: 4}
+        - {x: 36.5, y: 4}
+        - {x: 36.5, y: 10}
+        - {x: 33.5, y: 9}
+    - name: PlayerSprite_64
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 357
+        width: 101
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -11.5, y: -19}
+        - {x: -8.5, y: -22}
+        - {x: -6.5, y: -26}
+        - {x: 11.5, y: -26}
+        - {x: 49.5, y: -5}
+        - {x: 50.5, y: -3}
+        - {x: 50.5, y: 7}
+        - {x: -4.5, y: 26}
+        - {x: -44.5, y: 26}
+        - {x: -50.5, y: 15}
+        - {x: -50.5, y: -15}
+        - {x: -44.5, y: -26}
+        - {x: -10.5, y: -26}
+        - {x: -10.5, y: -22}
+        - {x: -11.5, y: -20}
+        - {x: -11.5, y: -16}
+      - - {x: -21.5, y: -6}
+        - {x: -18.5, y: -5}
+        - {x: -18.5, y: -2}
+        - {x: -21.5, y: -1}
+        - {x: -23.5, y: -3}
+    - name: PlayerSprite_65
+      rect:
+        serializedVersion: 2
+        x: 370
+        y: 357
+        width: 94
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -29, y: 26}
+        - {x: -41, y: 26}
+        - {x: -46, y: -13}
+        - {x: -46, y: -26}
+        - {x: 4, y: -26}
+        - {x: 3, y: -24}
+        - {x: 47, y: -5}
+        - {x: 47, y: 4}
+      - - {x: -47, y: 3}
+        - {x: -44, y: 4}
+        - {x: -44, y: 7}
+        - {x: -46, y: 9}
+        - {x: -47, y: 9}
+      - - {x: -43, y: 5}
+        - {x: -41, y: 3}
+        - {x: -38, y: 4}
+        - {x: -38, y: 7}
+        - {x: -40, y: 9}
+        - {x: -43, y: 8}
+      - - {x: -38, y: 5}
+        - {x: -36, y: 3}
+        - {x: -33, y: 4}
+        - {x: -33, y: 7}
+        - {x: -35, y: 9}
+        - {x: -38, y: 8}
+    - name: PlayerSprite_66
+      rect:
+        serializedVersion: 2
+        x: 471
+        y: 357
+        width: 83
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 41.5, y: -4}
+        - {x: 41.5, y: 6}
+        - {x: 4.5, y: 18}
+        - {x: -10.5, y: 18}
+        - {x: -12.5, y: 14}
+        - {x: -27.5, y: 26}
+        - {x: -37.5, y: 26}
+        - {x: -41.5, y: -6}
+        - {x: -41.5, y: -26}
+        - {x: 9.5, y: -26}
+        - {x: 16.5, y: -9}
+        - {x: 30.5, y: -9}
+    - name: PlayerSprite_67
+      rect:
+        serializedVersion: 2
+        x: 563
+        y: 357
+        width: 91
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 2.5, y: -25}
+        - {x: -0.5, y: -22}
+        - {x: 8.5, y: -11}
+        - {x: 34.5, y: -9}
+        - {x: 45.5, y: -5}
+        - {x: 45.5, y: 5}
+        - {x: 42.5, y: 12}
+        - {x: -11.5, y: 26}
+        - {x: -45.5, y: 26}
+        - {x: -45.5, y: -26}
+        - {x: -28.5, y: -26}
+        - {x: -26.5, y: -25}
+        - {x: -17.5, y: -26}
+        - {x: 2.5, y: -26}
+      - - {x: -18.5, y: -24}
+        - {x: -15.5, y: -23}
+        - {x: -15.5, y: -20}
+        - {x: -18.5, y: -19}
+        - {x: -20.5, y: -21}
+    - name: PlayerSprite_68
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 254
+        width: 41
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 13.5, y: 39.5}
+        - {x: -11.5, y: 24.5}
+        - {x: -16.5, y: 1.5}
+        - {x: -20.5, y: -17.5}
+        - {x: -20.5, y: -39.5}
+        - {x: -14.5, y: -39.5}
+        - {x: 20.5, y: -5.5}
+        - {x: 20.5, y: 39.5}
+    - name: PlayerSprite_69
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 270
+        width: 43
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -3.5, y: 22.5}
+        - {x: -0.5, y: 34.5}
+        - {x: -9.5, y: 34.5}
+        - {x: -21.5, y: 24.5}
+        - {x: -21.5, y: -34.5}
+        - {x: -1.5, y: -34.5}
+        - {x: 21.5, y: -6.5}
+        - {x: 21.5, y: 19.5}
+        - {x: 11.5, y: 23.5}
+    - name: PlayerSprite_70
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 250
+        width: 41
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -0.5, y: 40.5}
+        - {x: -20.5, y: 14.5}
+        - {x: -20.5, y: -12.5}
+        - {x: 10.5, y: -40.5}
+        - {x: 19.5, y: -40.5}
+        - {x: 20.5, y: -37.5}
+        - {x: 20.5, y: 40.5}
+    - name: PlayerSprite_71
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 250
+        width: 56
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -14, y: 20}
+        - {x: -21, y: 18}
+        - {x: -28, y: 2}
+        - {x: -28, y: -20}
+        - {x: 28, y: -20}
+        - {x: 28, y: 20}
+      - - {x: -6, y: -15}
+        - {x: -8, y: -17}
+        - {x: -8, y: -19}
+        - {x: -7, y: -20}
+        - {x: -3, y: -20}
+        - {x: -2, y: -19}
+        - {x: -2, y: -17}
+        - {x: -4, y: -15}
+    - name: PlayerSprite_72
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 288
+        width: 71
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 15.5, y: 21.5}
+        - {x: -22.5, y: 21.5}
+        - {x: -35.5, y: 6.5}
+        - {x: -35.5, y: -21.5}
+        - {x: 35.5, y: -21.5}
+        - {x: 35.5, y: -0.5}
+        - {x: 31.5, y: 15.5}
+    - name: PlayerSprite_73
+      rect:
+        serializedVersion: 2
+        x: 251
+        y: 265
+        width: 37
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 10.5, y: 14.5}
+        - {x: 3.5, y: 17.5}
+        - {x: -12.5, y: 17.5}
+        - {x: -18.5, y: 12.5}
+        - {x: -18.5, y: 0.5}
+        - {x: -15.5, y: -0.5}
+        - {x: -13.5, y: -3.5}
+        - {x: -12.5, y: -5.5}
+        - {x: 1.5, y: -17.5}
+        - {x: 18.5, y: -17.5}
+        - {x: 18.5, y: 12.5}
+        - {x: 13.5, y: 15.5}
+    - name: PlayerSprite_74
+      rect:
+        serializedVersion: 2
+        x: 330
+        y: 263
+        width: 65
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 14.5, y: 36}
+        - {x: 1.5, y: 36}
+        - {x: 1.5, y: 34}
+        - {x: -27.5, y: 28}
+        - {x: -32.5, y: 9}
+        - {x: -32.5, y: -15}
+        - {x: -28.5, y: -13}
+        - {x: -12.5, y: -36}
+        - {x: 26.5, y: -36}
+        - {x: 32.5, y: -22}
+        - {x: 32.5, y: 31}
+        - {x: 24.5, y: 34}
+    - name: PlayerSprite_75
+      rect:
+        serializedVersion: 2
+        x: 411
+        y: 267
+        width: 71
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 17.5, y: -7.5}
+        - {x: 31.5, y: 7.5}
+        - {x: 14.5, y: 32.5}
+        - {x: -23.5, y: 32.5}
+        - {x: -35.5, y: 24.5}
+        - {x: -35.5, y: -11.5}
+        - {x: -28.5, y: -32.5}
+        - {x: 26.5, y: -32.5}
+        - {x: 35.5, y: -28.5}
+        - {x: 35.5, y: -0.5}
+        - {x: 10.5, y: -15.5}
+    - name: PlayerSprite_76
+      rect:
+        serializedVersion: 2
+        x: 497
+        y: 263
+        width: 66
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 14, y: -28.5}
+        - {x: 28, y: -17.5}
+        - {x: 30, y: -15.5}
+        - {x: 33, y: -14.5}
+        - {x: 33, y: 33.5}
+        - {x: 32, y: 35.5}
+        - {x: -17, y: 35.5}
+        - {x: -27, y: 29.5}
+        - {x: -33, y: 22.5}
+        - {x: -33, y: -17.5}
+        - {x: -25, y: -35.5}
+        - {x: -2, y: -35.5}
+        - {x: 0, y: -32.5}
+        - {x: -11, y: -23.5}
+        - {x: 6, y: -28.5}
+    - name: PlayerSprite_77
+      rect:
+        serializedVersion: 2
+        x: 587
+        y: 282
+        width: 37
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: PlayerSprite_78
+      rect:
+        serializedVersion: 2
+        x: 624
+        y: 281
+        width: 30
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: PlayerSprite_79
+      rect:
+        serializedVersion: 2
+        x: 656
+        y: 281
+        width: 38
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: PlayerSprite_80
+      rect:
+        serializedVersion: 2
+        x: 697
+        y: 282
+        width: 31
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: PlayerSprite_81
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 173
+        width: 47
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 23.5, y: 24}
+        - {x: 10.5, y: 30}
+        - {x: -19.5, y: 30}
+        - {x: -23.5, y: -2}
+        - {x: -23.5, y: -30}
+        - {x: -18.5, y: -30}
+        - {x: 0.5, y: -16}
+        - {x: 10.5, y: -7}
+        - {x: 23.5, y: 6}
+      - - {x: 4.5, y: 28}
+        - {x: 4.5, y: 30}
+        - {x: -0.5, y: 30}
+        - {x: 1.5, y: 27}
+    - name: PlayerSprite_82
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 173
+        width: 40
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -15, y: 32.5}
+        - {x: -20, y: 23.5}
+        - {x: -20, y: -9.5}
+        - {x: -11, y: -27.5}
+        - {x: -6, y: -27.5}
+        - {x: -4, y: -25.5}
+        - {x: -4, y: -28.5}
+        - {x: 1, y: -32.5}
+        - {x: 9, y: -32.5}
+        - {x: 11, y: -29.5}
+        - {x: 20, y: 7.5}
+        - {x: 20, y: 32.5}
+    - name: PlayerSprite_83
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 173
+        width: 59
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -26.5, y: 34.5}
+        - {x: -29.5, y: 29.5}
+        - {x: -29.5, y: -16.5}
+        - {x: -17.5, y: -32.5}
+        - {x: -11.5, y: -26.5}
+        - {x: -12.5, y: -28.5}
+        - {x: -12.5, y: -30.5}
+        - {x: -7.5, y: -34.5}
+        - {x: 8.5, y: -34.5}
+        - {x: 23.5, y: 8.5}
+        - {x: 23.5, y: 34.5}
+      - - {x: 22.5, y: 10.5}
+        - {x: 21.5, y: 8.5}
+        - {x: 22.5, y: 4.5}
+        - {x: 29.5, y: 4.5}
+        - {x: 29.5, y: 10.5}
+    - name: PlayerSprite_84
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 173
+        width: 57
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 2.5, y: 1.5}
+        - {x: -0.5, y: 1.5}
+        - {x: -1.5, y: -1.5}
+        - {x: -1.5, y: 0.5}
+        - {x: 1.5, y: 2.5}
+        - {x: 9.5, y: -2.5}
+        - {x: 28.5, y: 2.5}
+        - {x: 28.5, y: 17.5}
+        - {x: 16.5, y: 33.5}
+        - {x: 1.5, y: 33.5}
+        - {x: -11.5, y: 29.5}
+        - {x: -28.5, y: 12.5}
+        - {x: -28.5, y: -33.5}
+        - {x: -20.5, y: -33.5}
+        - {x: 2.5, y: -20.5}
+        - {x: 4.5, y: -14.5}
+        - {x: 4.5, y: -1.5}
+    - name: PlayerSprite_85
+      rect:
+        serializedVersion: 2
+        x: 229
+        y: 185
+        width: 110
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -28, y: -25.5}
+        - {x: -28, y: -27.5}
+        - {x: -22, y: -27.5}
+        - {x: -22, y: -25.5}
+        - {x: -24, y: -23.5}
+        - {x: -26, y: -23.5}
+      - - {x: -35, y: 27.5}
+        - {x: -49, y: 18.5}
+        - {x: -49, y: -27.5}
+        - {x: 6, y: -27.5}
+        - {x: 55, y: -14.5}
+        - {x: 55, y: 7.5}
+        - {x: -10, y: 27.5}
+      - - {x: -52, y: 6.5}
+        - {x: -52, y: 9.5}
+        - {x: -55, y: 10.5}
+        - {x: -55, y: 5.5}
+    - name: PlayerSprite_86
+      rect:
+        serializedVersion: 2
+        x: 344
+        y: 187
+        width: 107
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -8.5, y: 26.5}
+        - {x: -32.5, y: 26.5}
+        - {x: -31.5, y: 20.5}
+        - {x: -27.5, y: 3.5}
+        - {x: -22.5, y: -1.5}
+        - {x: -40.5, y: -11.5}
+        - {x: -48.5, y: -17.5}
+        - {x: -53.5, y: -22.5}
+        - {x: -53.5, y: -26.5}
+        - {x: -18.5, y: -26.5}
+        - {x: 5.5, y: -25.5}
+        - {x: 16.5, y: -22.5}
+        - {x: 53.5, y: -9.5}
+        - {x: 53.5, y: 4.5}
+      - - {x: -44.5, y: 6.5}
+        - {x: -43.5, y: 3.5}
+        - {x: -40.5, y: 3.5}
+        - {x: -38.5, y: 5.5}
+        - {x: -39.5, y: 8.5}
+        - {x: -42.5, y: 8.5}
+      - - {x: -35.5, y: 3.5}
+        - {x: -32.5, y: 4.5}
+        - {x: -32.5, y: 7.5}
+        - {x: -35.5, y: 8.5}
+        - {x: -37.5, y: 6.5}
+      - - {x: -30.5, y: 3.5}
+        - {x: -27.5, y: 4.5}
+        - {x: -27.5, y: 7.5}
+        - {x: -30.5, y: 8.5}
+        - {x: -32.5, y: 6.5}
+    - name: PlayerSprite_87
+      rect:
+        serializedVersion: 2
+        x: 452
+        y: 185
+        width: 99
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -36.5, y: -27.5}
+        - {x: -32.5, y: -27.5}
+        - {x: -32.5, y: -24.5}
+        - {x: -35.5, y: -23.5}
+        - {x: -37.5, y: -25.5}
+      - - {x: -15.5, y: -27.5}
+        - {x: -15.5, y: -25.5}
+        - {x: -18.5, y: -24.5}
+        - {x: -20.5, y: -27.5}
+      - - {x: 49.5, y: -2.5}
+        - {x: 49.5, y: 4.5}
+        - {x: 43.5, y: 17.5}
+        - {x: 13.5, y: 27.5}
+        - {x: -28.5, y: 27.5}
+        - {x: -28.5, y: 24.5}
+        - {x: -49.5, y: -18.5}
+        - {x: -49.5, y: -27.5}
+        - {x: 3.5, y: -27.5}
+        - {x: 14.5, y: -19.5}
+        - {x: 14.5, y: -12.5}
+        - {x: 34.5, y: -7.5}
+    - name: PlayerSprite_88
+      rect:
+        serializedVersion: 2
+        x: 556
+        y: 185
+        width: 106
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -18, y: -27.5}
+        - {x: -18, y: -25.5}
+        - {x: -21, y: -24.5}
+        - {x: -23, y: -27.5}
+      - - {x: -36, y: 27.5}
+        - {x: -44, y: 13.5}
+        - {x: -53, y: -14.5}
+        - {x: -53, y: -27.5}
+        - {x: 10, y: -27.5}
+        - {x: 15, y: -26.5}
+        - {x: 53, y: -9.5}
+        - {x: 53, y: 4.5}
+        - {x: -23, y: 27.5}
+    - name: PlayerSprite_89
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 109
+        width: 37
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 2.5, y: 23}
+        - {x: -16.5, y: 23}
+        - {x: -18.5, y: 16}
+        - {x: -18.5, y: -12}
+        - {x: -7.5, y: -16}
+        - {x: -6.5, y: -12}
+        - {x: -6.5, y: -9}
+        - {x: -4.5, y: -4}
+        - {x: -6.5, y: -14}
+        - {x: -5.5, y: -20}
+        - {x: -4.5, y: -23}
+        - {x: 10.5, y: -23}
+        - {x: 18.5, y: -20}
+        - {x: 18.5, y: 13}
+        - {x: 14.5, y: 16}
+      - - {x: -15.5, y: 16}
+        - {x: -15.5, y: 19}
+        - {x: -18.5, y: 20}
+        - {x: -18.5, y: 15}
+    - name: PlayerSprite_90
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 106
+        width: 55
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 19.5, y: 26.5}
+        - {x: -16.5, y: 17.5}
+        - {x: -17.5, y: 12.5}
+        - {x: -17.5, y: 10.5}
+        - {x: -15.5, y: 8.5}
+        - {x: -13.5, y: 8.5}
+        - {x: -13.5, y: 5.5}
+        - {x: -23.5, y: 16.5}
+        - {x: -24.5, y: 18.5}
+        - {x: -27.5, y: 19.5}
+        - {x: -27.5, y: -13.5}
+        - {x: -1.5, y: -26.5}
+        - {x: 11.5, y: -26.5}
+        - {x: 17.5, y: -22.5}
+        - {x: 27.5, y: -21.5}
+        - {x: 27.5, y: 26.5}
+    - name: PlayerSprite_91
+      rect:
+        serializedVersion: 2
+        x: 105
+        y: 110
+        width: 55
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -14.5, y: 13.5}
+        - {x: -15.5, y: 8.5}
+        - {x: -15.5, y: 7.5}
+        - {x: -12.5, y: 4.5}
+        - {x: -23.5, y: 15.5}
+        - {x: -26.5, y: 16.5}
+        - {x: -27.5, y: 16.5}
+        - {x: -27.5, y: -19.5}
+        - {x: -11.5, y: -24.5}
+        - {x: 27.5, y: -24.5}
+        - {x: 27.5, y: 24.5}
+        - {x: 9.5, y: 24.5}
+        - {x: 5.5, y: 23.5}
+    - name: PlayerSprite_92
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 110
+        width: 59
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -29.5, y: 17.5}
+        - {x: -29.5, y: -19.5}
+        - {x: -19.5, y: -24.5}
+        - {x: 29.5, y: -24.5}
+        - {x: 29.5, y: 24.5}
+        - {x: -9.5, y: 24.5}
+        - {x: -27.5, y: 21.5}
+      - - {x: 23.5, y: 11.5}
+        - {x: 23.5, y: 10.5}
+        - {x: 25.5, y: 8.5}
+        - {x: 26.5, y: 8.5}
+        - {x: 29.5, y: 11.5}
+        - {x: 29.5, y: 16.5}
+        - {x: 28.5, y: 16.5}
+    - name: PlayerSprite_93
+      rect:
+        serializedVersion: 2
+        x: 229
+        y: 108
+        width: 57
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -28.5, y: 2.5}
+        - {x: -20.5, y: -25.5}
+        - {x: 14.5, y: -25.5}
+        - {x: 26.5, y: -23.5}
+        - {x: 28.5, y: -22.5}
+        - {x: 28.5, y: 25.5}
+        - {x: -11.5, y: 25.5}
+        - {x: -28.5, y: 23.5}
+    - name: PlayerSprite_94
+      rect:
+        serializedVersion: 2
+        x: 291
+        y: 110
+        width: 55
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -27.5, y: -18.5}
+        - {x: -16.5, y: -24.5}
+        - {x: 27.5, y: -24.5}
+        - {x: 27.5, y: 24.5}
+        - {x: 2.5, y: 24.5}
+        - {x: -27.5, y: 20.5}
+    - name: PlayerSprite_95
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 105
+        width: 55
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 2.5, y: -25}
+        - {x: 3.5, y: -27}
+        - {x: 8.5, y: -27}
+        - {x: 8.5, y: -26}
+        - {x: 5.5, y: -23}
+        - {x: 4.5, y: -23}
+      - - {x: -27.5, y: 27}
+        - {x: -27.5, y: -8}
+        - {x: 1.5, y: -24}
+        - {x: 17.5, y: -24}
+        - {x: 27.5, y: -22}
+        - {x: 27.5, y: 27}
+    - name: PlayerSprite_96
+      rect:
+        serializedVersion: 2
+        x: 412
+        y: 106
+        width: 55
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 21.5, y: 26.5}
+        - {x: -6.5, y: 19.5}
+        - {x: -27.5, y: 20.5}
+        - {x: -27.5, y: -14.5}
+        - {x: -7.5, y: -26.5}
+        - {x: 19.5, y: -26.5}
+        - {x: 27.5, y: -22.5}
+        - {x: 27.5, y: 26.5}
+    - name: PlayerSprite_97
+      rect:
+        serializedVersion: 2
+        x: 475
+        y: 110
+        width: 55
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -23.5, y: 24.5}
+        - {x: -27.5, y: 20.5}
+        - {x: -27.5, y: -18.5}
+        - {x: -10.5, y: -24.5}
+        - {x: 27.5, y: -24.5}
+        - {x: 27.5, y: 24.5}
+    - name: PlayerSprite_98
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 25
+        width: 44
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -14, y: 31}
+        - {x: -22, y: 26}
+        - {x: -22, y: -19}
+        - {x: -17, y: -31}
+        - {x: 21, y: -31}
+        - {x: 22, y: -30}
+        - {x: 22, y: 30}
+        - {x: 17, y: 31}
+      - - {x: 10, y: 13}
+        - {x: 13, y: 14}
+        - {x: 13, y: 17}
+        - {x: 10, y: 18}
+        - {x: 8, y: 16}
+    - name: PlayerSprite_99
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 25
+        width: 42
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 18, y: -29.5}
+        - {x: 21, y: -29.5}
+        - {x: 21, y: 29.5}
+        - {x: 14, y: 29.5}
+        - {x: -13, y: 19.5}
+        - {x: -21, y: 13.5}
+        - {x: -21, y: -8.5}
+        - {x: -6, y: -29.5}
+        - {x: 17, y: -29.5}
+        - {x: 17, y: -27.5}
+        - {x: 14, y: -26.5}
+        - {x: 16, y: -24.5}
+    - name: PlayerSprite_100
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 5
+        width: 58
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 25, y: 30}
+        - {x: -6, y: 23}
+        - {x: -9, y: 21}
+        - {x: -13, y: 10}
+        - {x: -15, y: 15}
+        - {x: -4, y: 27}
+        - {x: 29, y: 37}
+        - {x: 29, y: 40}
+        - {x: -9, y: 40}
+        - {x: -29, y: 27}
+        - {x: -29, y: -29}
+        - {x: -27, y: -37}
+        - {x: -21, y: -40}
+        - {x: 29, y: -40}
+        - {x: 29, y: 33}
+        - {x: 28, y: 33}
+    - name: PlayerSprite_101
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 83
+        width: 14
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: PlayerSprite_102
+      rect:
+        serializedVersion: 2
+        x: 181
+        y: 17
+        width: 16
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: PlayerSprite_103
+      rect:
+        serializedVersion: 2
+        x: 195
+        y: 71
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+    - name: PlayerSprite_104
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 7
+        width: 43
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -21.5, y: 22.5}
+        - {x: -21.5, y: -1.5}
+        - {x: 9.5, y: -35.5}
+        - {x: 21.5, y: -35.5}
+        - {x: 21.5, y: 34.5}
+        - {x: 19.5, y: 35.5}
+      - - {x: 17.5, y: 17.5}
+        - {x: 16.5, y: 13.5}
+        - {x: 18.5, y: 11.5}
+        - {x: 21.5, y: 12.5}
+        - {x: 21.5, y: 18.5}
+        - {x: 19.5, y: 18.5}
+      - - {x: -19.5, y: 35.5}
+        - {x: -21.5, y: 34.5}
+        - {x: -21.5, y: 28.5}
+        - {x: -20.5, y: 28.5}
+        - {x: -12.5, y: 33.5}
+        - {x: -12.5, y: 35.5}
+    - name: PlayerSprite_105
+      rect:
+        serializedVersion: 2
+        x: 249
+        y: 8
+        width: 43
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 21.5, y: -17}
+        - {x: 21.5, y: 34}
+        - {x: 12.5, y: 34}
+        - {x: -19.5, y: 22}
+        - {x: -21.5, y: 14}
+        - {x: -21.5, y: -3}
+        - {x: -1.5, y: -34}
+        - {x: 4.5, y: -34}
+        - {x: 5.5, y: -33}
+        - {x: 2.5, y: -22}
+        - {x: 0.5, y: -21}
+    - name: PlayerSprite_106
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 26
+        width: 51
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -15.5, y: 25}
+        - {x: -23.5, y: 0}
+        - {x: -20.5, y: -2}
+        - {x: -17.5, y: -8}
+        - {x: -15.5, y: -6}
+        - {x: -25.5, y: -16}
+        - {x: -25.5, y: -22}
+        - {x: -17.5, y: -22}
+        - {x: -7.5, y: -15}
+        - {x: -2.5, y: -12}
+        - {x: -0.5, y: -8}
+        - {x: -1.5, y: -8}
+        - {x: -0.5, y: -10}
+        - {x: 1.5, y: -24}
+        - {x: 1.5, y: -25}
+        - {x: 25.5, y: -25}
+        - {x: 25.5, y: 25}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
