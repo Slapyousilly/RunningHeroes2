@@ -42,7 +42,7 @@ public abstract class EntityBase : MonoBehaviour {
         this.SetHealth(health);
     }
 
-    public abstract void RunFSM(GameState.GAMESTATE state); ///! act upon any change in behaviour   
+    public abstract void RunFSM(); ///! act upon any change in behaviour   
 
     public float GetAttackSpeed()
     {

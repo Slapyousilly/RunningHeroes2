@@ -34,12 +34,16 @@ public class GameState : MonoBehaviour {
                     //b_Scrolling = false;
                 break;
             case GAMESTATE.GS_VICTORY:
+                BackgroundScroll.GetComponent<BackgroundScrolling>().b_Scrolling = false;
                 break;
             case GAMESTATE.GS_DEFEAT:
+                BackgroundScroll.GetComponent<BackgroundScrolling>().b_Scrolling = false;
                 break;
             case GAMESTATE.GS_START:
+                BackgroundScroll.GetComponent<BackgroundScrolling>().b_Scrolling = false;
                 break;
             case GAMESTATE.GS_TUTORIAL:
+                BackgroundScroll.GetComponent<BackgroundScrolling>().b_Scrolling = false;
                 break;
         }
 	}

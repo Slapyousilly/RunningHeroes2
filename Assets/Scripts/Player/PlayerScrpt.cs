@@ -29,21 +29,15 @@ public class PlayerScrpt : EntityBase {
 	
 	// Update is called once per frame
 	void Update () {
-        Debug.Log("huh");
-        RunFSM(state.gameState);
-        //RunFSM(GetComponent<GameState>().gameState);
-        //anim.SetTrigger("RUN");
-	}
 
-    public override void RunFSM(GameState.GAMESTATE state)
-    {
         Debug.Log(state);
-        switch (state)
+        switch (state.gameState)
         {
             case GameState.GAMESTATE.GS_PLAY:
                 Run();
                 break;
             case GameState.GAMESTATE.GS_ENCOUNTER:
+                RunFSM();
                 Idle();
                 break;
             case GameState.GAMESTATE.GS_VICTORY:
@@ -55,6 +49,13 @@ public class PlayerScrpt : EntityBase {
             case GameState.GAMESTATE.GS_TUTORIAL:
                 break;
         }
+        //RunFSM(GetComponent<GameState>().gameState);
+        //anim.SetTrigger("RUN");
+    }
+
+    public override void RunFSM()
+    {
+
     }
 
     void Idle()
