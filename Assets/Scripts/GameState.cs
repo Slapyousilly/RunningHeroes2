@@ -11,6 +11,8 @@ public class GameState : MonoBehaviour {
         GS_DEFEAT,
         GS_START,
         GS_TUTORIAL,
+        GS_PAUSE,
+        GS_LAST,
     }
 
     public GAMESTATE gameState;
@@ -44,6 +46,7 @@ public class GameState : MonoBehaviour {
                 break;
             case GAMESTATE.GS_TUTORIAL:
                 BackgroundScroll.GetComponent<BackgroundScrolling>().b_Scrolling = false;
+                //Trigger Tutorial Image
                 break;
         }
 	}

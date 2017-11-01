@@ -12,6 +12,19 @@ public class PlayerScrpt : EntityBase {
         P_MAGE
     }
 
+    public enum PLAYER_STATES
+    {
+        S_IDLE = 0,
+        S_RUN,
+        S_ATTACK,
+        S_SKILL1,
+        S_SKILL2,
+        S_DIE,
+
+        S_END,
+    }
+
+    public PLAYER_STATES p_State = PLAYER_STATES.S_IDLE;
     public PLAYER_TYPE p_Type = PLAYER_TYPE.P_KNIGHT;
 
 	// Use this for initialization
@@ -30,34 +43,59 @@ public class PlayerScrpt : EntityBase {
 	// Update is called once per frame
 	void Update () {
 
+        //Time.timeScale = 0; //can use to pause game or do shit.
+
         Debug.Log(state);
-        switch (state.gameState)
+        if (state.gameState != GameState.GAMESTATE.GS_TUTORIAL)
+            Time.timeScale = 1;
+            //anim.speed = 1;
+
+        if (m_HP > 0)
         {
-            case GameState.GAMESTATE.GS_PLAY:
-                Run();
-                break;
-            case GameState.GAMESTATE.GS_ENCOUNTER:
-                RunFSM();
-                Idle();
-                break;
-            case GameState.GAMESTATE.GS_VICTORY:
-                break;
-            case GameState.GAMESTATE.GS_DEFEAT:
-                break;
-            case GameState.GAMESTATE.GS_START:
-                break;
-            case GameState.GAMESTATE.GS_TUTORIAL:
-                break;
+            switch (state.gameState)
+            {
+                case GameState.GAMESTATE.GS_PLAY:
+                    Run();
+                    break;
+                case GameState.GAMESTATE.GS_ENCOUNTER:
+                    RunFSM();
+                    Idle();
+                    break;
+                case GameState.GAMESTATE.GS_VICTORY:
+                    break;
+                case GameState.GAMESTATE.GS_DEFEAT:
+                    break;
+                case GameState.GAMESTATE.GS_START:
+                    Idle();
+                    break;
+                case GameState.GAMESTATE.GS_TUTORIAL:
+                    //anim.speed = 0;
+                    Time.timeScale = 0;
+                    break;
+            }
+        }
+        else
+        {
+            Die();
         }
         //RunFSM(GetComponent<GameState>().gameState);
         //anim.SetTrigger("RUN");
     }
-
+    /*       S_IDLE = 0,
+        S_RUN,
+        S_ATTACK,
+        S_SKILL1,
+        S_SKILL2,
+        S_DIE,*/
     public override void RunFSM()
     {
-
+        if (m_HP <= 0)
+        {
+            Die();
+        }
     }
 
+    #region Animation Trigger States
     void Idle()
     {
         anim.SetTrigger("IDLE");
@@ -81,4 +119,26 @@ public class PlayerScrpt : EntityBase {
     {
         anim.SetTrigger("ATTACK");
     }
+    void Die()
+    {
+        anim.SetTrigger("DIE");
+    }
+    #endregion
+
+    #region Player Targetting
+    protected GameObject GetNearestTarget()
+    {
+        float closetdistance = 900;
+        GameObject temp = null;
+        GameObject go = GameObject.FindGameObjectWithTag("Enemy");
+        float dist = Vector3.Distance(go.transform.position, this.gameObject.transform.position);
+        if (dist < closetdistance)
+        {
+            closetdistance = dist;
+            temp = go;
+        }
+        return temp;
+
+    }
+    #endregion
 }

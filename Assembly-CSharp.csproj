@@ -6,7 +6,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{76471718-80F4-9A6C-FABF-F65DA718483C}</ProjectGuid>
+    <ProjectGuid>{F096D0B3-FDEB-CBAD-4E27-55608D354DFA}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\BackgroundScrolling.cs" />
+     <Compile Include="Assets\Scripts\EncounterSystem\EncounterSystem.cs" />
      <Compile Include="Assets\Scripts\Entity\EntityBase.cs" />
      <Compile Include="Assets\Scripts\GameState.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerScrpt.cs" />
