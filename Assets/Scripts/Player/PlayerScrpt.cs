@@ -4,6 +4,7 @@ using System.Collections;
 public class PlayerScrpt : EntityBase {
 
     private Animator anim;//! Animator of Player to set bool/triggers in Updates
+    public float m_lifeSpan;
 
     public enum PLAYER_TYPE
     {
@@ -38,6 +39,7 @@ public class PlayerScrpt : EntityBase {
         m_Name = "Hero";
         m_Damage = 200;
         m_resistance = 1.0f;
+        m_lifeSpan = 100.0f;
 	}
 	
 	// Update is called once per frame
