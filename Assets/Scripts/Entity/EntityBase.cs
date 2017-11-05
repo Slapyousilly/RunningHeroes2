@@ -42,6 +42,34 @@ public abstract class EntityBase : MonoBehaviour {
         this.SetHealth(health);
     }
 
+    protected void MoveTowardsTarget()
+    {
+        //Vector2.Distance(this.gameObject.transform.position, GetNearestTarget().transform.position);
+        Vector3 Dir = (GetNearestTarget().transform.position - this.transform.position).normalized;
+        Dir.z = 0;
+        this.transform.position += Dir * Time.deltaTime * 3.0f;
+    }
+
+    protected GameObject GetNearestTarget()
+    {
+        float closetdistance = 900;
+        GameObject temp = null;
+        GameObject go = null;
+        if (this.tag == "Enemy")
+             go = GameObject.FindGameObjectWithTag("Player");
+        else
+             go = GameObject.FindGameObjectWithTag("Enemy");
+
+        float dist = Vector3.Distance(go.transform.position, this.gameObject.transform.position);
+        if (dist < closetdistance)
+        {
+            closetdistance = dist;
+            temp = go;
+        }
+        return temp;
+
+    }
+
     public abstract void RunFSM(); ///! act upon any change in behaviour   
 
     public float GetAttackSpeed()

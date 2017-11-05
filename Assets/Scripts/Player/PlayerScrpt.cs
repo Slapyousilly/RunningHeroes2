@@ -1,10 +1,16 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class PlayerScrpt : EntityBase {
 
     private Animator anim;//! Animator of Player to set bool/triggers in Updates
     public float m_lifeSpan;
+    private float m_maxlifeSpan;
+    public GameObject m_playerHP;
+    private Slider m_HPSlider;
+    public GameObject m_playerLifespan;
+    public Text m_playerLifespanText;
 
     public enum PLAYER_TYPE
     {
@@ -31,28 +37,36 @@ public class PlayerScrpt : EntityBase {
 	// Use this for initialization
 	void Start () {
         anim = this.gameObject.GetComponent<Animator>();
+        m_HPSlider = m_playerHP.GetComponent<Slider>();
         m_isDead = false;
         m_HP = 1000;
         m_maxHP = m_HP;
+        m_HPSlider.maxValue = m_maxHP;
+        m_HPSlider.value = m_HP;
         m_atkSpd = 1.1f;
         m_flinchDt = 0.5f;
         m_Name = "Hero";
         m_Damage = 200;
         m_resistance = 1.0f;
         m_lifeSpan = 100.0f;
+        m_maxlifeSpan = m_lifeSpan;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-
+        //m_HPSlider.value = m_HP;
         //Time.timeScale = 0; //can use to pause game or do shit.
+        m_lifeSpan -= Time.deltaTime;
 
-        Debug.Log(state);
+        m_playerLifespan.GetComponent<Image>().fillAmount = (m_lifeSpan / m_maxlifeSpan);
+        m_playerLifespanText.text = System.Math.Round(m_lifeSpan, 1) +"%";
+        
+
         if (state.gameState != GameState.GAMESTATE.GS_TUTORIAL)
             Time.timeScale = 1;
             //anim.speed = 1;
 
-        if (m_HP > 0)
+        if (m_HP > 0 || m_lifeSpan > 0)
         {
             switch (state.gameState)
             {
@@ -61,7 +75,7 @@ public class PlayerScrpt : EntityBase {
                     break;
                 case GameState.GAMESTATE.GS_ENCOUNTER:
                     RunFSM();
-                    Idle();
+                    //Idle();
                     break;
                 case GameState.GAMESTATE.GS_VICTORY:
                     break;
@@ -83,19 +97,26 @@ public class PlayerScrpt : EntityBase {
         //RunFSM(GetComponent<GameState>().gameState);
         //anim.SetTrigger("RUN");
     }
-    /*       S_IDLE = 0,
-        S_RUN,
-        S_ATTACK,
-        S_SKILL1,
-        S_SKILL2,
-        S_DIE,*/
+
     public override void RunFSM()
     {
-        if (m_HP <= 0)
+        if (GetNearestTarget())
+        {
+            Debug.Log("Testing Chase");
+            Run();
+            MoveTowardsTarget();
+        }
+        if (m_HP <= 0 || m_lifeSpan <= 0)
         {
             Die();
         }
     }
+
+    //public void TakeDamage(int dmg)
+    //{
+    //    m_HP -= dmg;
+    //    m_HPSlider.value = m_HP;
+    //}
 
     #region Animation Trigger States
     void Idle()
@@ -128,19 +149,7 @@ public class PlayerScrpt : EntityBase {
     #endregion
 
     #region Player Targetting
-    protected GameObject GetNearestTarget()
-    {
-        float closetdistance = 900;
-        GameObject temp = null;
-        GameObject go = GameObject.FindGameObjectWithTag("Enemy");
-        float dist = Vector3.Distance(go.transform.position, this.gameObject.transform.position);
-        if (dist < closetdistance)
-        {
-            closetdistance = dist;
-            temp = go;
-        }
-        return temp;
 
-    }
+
     #endregion
 }
