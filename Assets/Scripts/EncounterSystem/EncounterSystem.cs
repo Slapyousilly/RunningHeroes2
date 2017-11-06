@@ -16,6 +16,10 @@ public class EncounterSystem : MonoBehaviour {
     private float m_nextbufferDt;     
 
     public Text feedbackText;               // Text to ask player to tap
+    public bool doEncounterCheck;
+
+    public GameObject GameStateThing;
+    private GameState m_gstate;
 
     public enum ENCOUNTERS                  // Encounters Players will get
     {
@@ -34,6 +38,8 @@ public class EncounterSystem : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        doEncounterCheck = true;
+        m_gstate = GameStateThing.GetComponent<GameState>();
         m_Player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerScrpt>();  // Finding player and getting details from player directly
         _encounters.Add(ENCOUNTERS.E_WEAPONUP); //= new ENCOUNTERS[5] { ENCOUNTERS.E_WEAPONUP, ENCOUNTERS.E_MONSTERS, ENCOUNTERS.E_MONSTERS, ENCOUNTERS.E_SHRINE, ENCOUNTERS.E_ARMORUP };
         _encounters.Add(ENCOUNTERS.E_MONSTERS);
@@ -89,22 +95,25 @@ public class EncounterSystem : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        //if (CurrEncounterCheck() != ENCOUNTERS.E_MONSTERS || CurrEncounterCheck() != ENCOUNTERS.E_BOSS)
+        if (doEncounterCheck)
+        {
+            //if (CurrEncounterCheck() != ENCOUNTERS.E_MONSTERS || CurrEncounterCheck() != ENCOUNTERS.E_BOSS)
             m_nextEncounterDt -= Time.deltaTime;
 
-	    if (m_nextEncounterDt <= 0.0f)
-        {
-            // do the Touch to be like "hey u got this encounter"
-            // then after pass by let the encounter goneee
-            if (m_bufferdt > 0.0f)
+            if (m_nextEncounterDt <= 0.0f)
             {
-                m_bufferdt -= Time.deltaTime;
-                showRespectiveText();
+                // do the Touch to be like "hey u got this encounter"
+                // then after pass by let the encounter goneee
+                if (m_bufferdt > 0.0f)
+                {
+                    m_bufferdt -= Time.deltaTime;
+                    showRespectiveText();
 
-                if (m_bufferdt <= 0.0f)
-                    EncounterReset();
+                    if (m_bufferdt <= 0.0f)
+                        EncounterReset();
+                }
+                //_encounters[0]
             }
-            //_encounters[0]
         }
 	}
 
@@ -136,9 +145,11 @@ public class EncounterSystem : MonoBehaviour {
                 break;
             case ENCOUNTERS.E_MONSTERS:
                 feedbackText.text = "Use your skills!";
+                m_gstate.gameState = GameState.GAMESTATE.GS_ENCOUNTER;
                 break;
             case ENCOUNTERS.E_BOSS:
                 feedbackText.text = "Use your skills!";
+                m_gstate.gameState = GameState.GAMESTATE.GS_ENCOUNTER;
                 break;
         }
     }

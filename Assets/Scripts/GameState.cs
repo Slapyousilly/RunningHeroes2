@@ -18,10 +18,13 @@ public class GameState : MonoBehaviour {
     public GAMESTATE gameState;
 
     public GameObject BackgroundScroll;
+    public GameObject EncounterThing;
+    private EncounterSystem m_enc;
 
 	// Use this for initialization
 	void Start () {
         gameState = GAMESTATE.GS_START;
+        m_enc = EncounterThing.GetComponent<EncounterSystem>();
 	}
 	
 	// Update is called once per frame
@@ -30,9 +33,11 @@ public class GameState : MonoBehaviour {
         {
             case GAMESTATE.GS_PLAY:
                 BackgroundScroll.GetComponent<BackgroundScrolling>().b_Scrolling = true;
+                m_enc.doEncounterCheck = true;
                 break;
             case GAMESTATE.GS_ENCOUNTER:
                 BackgroundScroll.GetComponent<BackgroundScrolling>().b_Scrolling = false;
+                m_enc.doEncounterCheck = false;
                     //b_Scrolling = false;
                 break;
             case GAMESTATE.GS_VICTORY:
@@ -43,6 +48,7 @@ public class GameState : MonoBehaviour {
                 break;
             case GAMESTATE.GS_START:
                 BackgroundScroll.GetComponent<BackgroundScrolling>().b_Scrolling = false;
+                m_enc.doEncounterCheck = false;
                 break;
             case GAMESTATE.GS_TUTORIAL:
                 BackgroundScroll.GetComponent<BackgroundScrolling>().b_Scrolling = false;
