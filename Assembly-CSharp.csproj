@@ -47,6 +47,7 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\BackgroundScrolling.cs" />
      <Compile Include="Assets\Scripts\EncounterSystem\EncounterSystem.cs" />
+     <Compile Include="Assets\Scripts\EnemyScript.cs" />
      <Compile Include="Assets\Scripts\Entity\EntityBase.cs" />
      <Compile Include="Assets\Scripts\GameState.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerScrpt.cs" />

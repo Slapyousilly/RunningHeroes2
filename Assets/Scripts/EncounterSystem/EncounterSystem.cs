@@ -47,51 +47,6 @@ public class EncounterSystem : MonoBehaviour {
         _encounters.Add(ENCOUNTERS.E_SHRINE);
         _encounters.Add(ENCOUNTERS.E_ARMORUP);
     }
-
-    void EncounterCheck()
-    {
-        _encounters.Contains(ENCOUNTERS.E_SHRINE); // Returns true if it does contain inside List.
-        //_encounters[0];
-        if (_encounters.Count < 5)
-        {
-            // Add new encounter logic
-            if (m_Player.m_HP <= m_Player.m_maxHP * 0.75f)
-            {
-                _encounters.Add(ENCOUNTERS.E_REPAIR);
-            }
-            if (m_Player.m_lifeSpan < 30.0f && !_encounters.Contains(ENCOUNTERS.E_SHRINE))
-            {
-                _encounters.Add(ENCOUNTERS.E_SHRINE);
-            }
-            // Determine next encounter
-        }
-    }
-
-    ENCOUNTERS NextEncounterAdd()
-    {
-        _encounters.Contains(ENCOUNTERS.E_SHRINE); // Returns true if it does contain inside List.
-        //_encounters[0];
-        if (_encounters.Count < 5)
-        {
-            // Add new encounter logic
-            // Determine next encounter
-            if (m_Player.m_lifeSpan < 30.0f && !_encounters.Contains(ENCOUNTERS.E_SHRINE))
-                return ENCOUNTERS.E_SHRINE;
-            if (m_Player.m_HP <= m_Player.m_maxHP * 0.75f)
-                return ENCOUNTERS.E_REPAIR;
-            else
-                return ENCOUNTERS.E_MONSTERS;
-        }
-        else
-            return ENCOUNTERS.E_MONSTERS;
-
-        return ENCOUNTERS.E_END;
-    }
-
-    ENCOUNTERS CurrEncounterCheck()
-    {
-        return _encounters[0];
-    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -116,16 +71,6 @@ public class EncounterSystem : MonoBehaviour {
             }
         }
 	}
-
-    void EncounterReset()
-    {
-        _encounters.RemoveAt(0);
-        Debug.Log(NextEncounterAdd());
-        _encounters.Add(NextEncounterAdd());
-        feedbackText.text = "";
-        m_nextEncounterDt = 2.0f;
-        m_bufferdt = 2.0f;
-    }
 
     void showRespectiveText()
     {
@@ -154,8 +99,66 @@ public class EncounterSystem : MonoBehaviour {
         }
     }
 
+
+    #region Encounter Checks
     private void AddEncounter(ENCOUNTERS enc)
     {
         _encounters.Add(enc);
     }
+
+    void EncounterCheck()
+    {
+        _encounters.Contains(ENCOUNTERS.E_SHRINE); // Returns true if it does contain inside List.
+        //_encounters[0];
+        if (_encounters.Count < 5)
+        {
+            // Add new encounter logic
+            if (m_Player.m_HP <= m_Player.m_maxHP * 0.75f)
+            {
+                _encounters.Add(ENCOUNTERS.E_REPAIR);
+            }
+            if (m_Player.m_lifeSpan < 30.0f && !_encounters.Contains(ENCOUNTERS.E_SHRINE))
+            {
+                _encounters.Add(ENCOUNTERS.E_SHRINE);
+            }
+            // Determine next encounter
+        }
+    }
+
+    void EncounterReset()
+    {
+        _encounters.RemoveAt(0);
+        Debug.Log(NextEncounterAdd());
+        _encounters.Add(NextEncounterAdd());
+        feedbackText.text = "";
+        m_nextEncounterDt = 2.0f;
+        m_bufferdt = 2.0f;
+    }
+
+    ENCOUNTERS NextEncounterAdd()
+    {
+        _encounters.Contains(ENCOUNTERS.E_SHRINE); // Returns true if it does contain inside List.
+        //_encounters[0];
+        if (_encounters.Count < 5)
+        {
+            // Add new encounter logic
+            // Determine next encounter
+            if (m_Player.m_lifeSpan < 30.0f && !_encounters.Contains(ENCOUNTERS.E_SHRINE))
+                return ENCOUNTERS.E_SHRINE;
+            if (m_Player.m_HP <= m_Player.m_maxHP * 0.75f)
+                return ENCOUNTERS.E_REPAIR;
+            else
+                return ENCOUNTERS.E_MONSTERS;
+        }
+        else
+            return ENCOUNTERS.E_MONSTERS;
+
+        return ENCOUNTERS.E_END;
+    }
+
+    ENCOUNTERS CurrEncounterCheck()
+    {
+        return _encounters[0];
+    }
+    #endregion 
 }
