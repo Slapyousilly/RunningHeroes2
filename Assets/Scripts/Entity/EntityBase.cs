@@ -24,6 +24,7 @@ public abstract class EntityBase : MonoBehaviour {
 
     void OnCollisionEnter2D(Collision2D col)
     {
+
         if (col.gameObject.CompareTag("Enemy"))
         {
             Debug.Log("Collide Enemy!");

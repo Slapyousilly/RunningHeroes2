@@ -12,6 +12,8 @@ public class PlayerScrpt : EntityBase {
     public GameObject m_playerLifespan;
     public Text m_playerLifespanText;
 
+    private EnemyScript enemy;
+
     public enum PLAYER_TYPE
     {
         P_KNIGHT = 0,
@@ -36,6 +38,7 @@ public class PlayerScrpt : EntityBase {
 
 	// Use this for initialization
 	void Start () {
+        enemy = GameObject.FindGameObjectWithTag("Enemy").GetComponent<EnemyScript>();
         anim = this.gameObject.GetComponent<Animator>();
         m_HPSlider = m_playerHP.GetComponent<Slider>();
         m_isDead = false;
@@ -109,6 +112,26 @@ public class PlayerScrpt : EntityBase {
         if (m_HP <= 0 || m_lifeSpan <= 0)
         {
             Die();
+        }
+    }
+
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        Debug.Log("COLLIDE");
+        if (col.gameObject.CompareTag("Enemy"))
+        {
+            Debug.Log("Collide Enemy!");
+            col.gameObject.SendMessage("TakeDamage", col.gameObject.GetComponent<EntityBase>().m_Damage);
+            StartCoroutine(enemy.Knockback(0.02f, 350, new Vector3 (-1, 0, 0)));
+
+            //Vector2 pew = new Vector2(240, 0);
+            //col.rigidbody.AddRelativeForce(pew);
+            //Debug.Log("Collide PEW!");
+        }
+        else if (col.gameObject.CompareTag("Player"))
+        {
+            Debug.Log("Collide Player!");
+            col.gameObject.SendMessage("TakeDamage", col.gameObject.GetComponent<PlayerScrpt>().m_Damage);
         }
     }
 
