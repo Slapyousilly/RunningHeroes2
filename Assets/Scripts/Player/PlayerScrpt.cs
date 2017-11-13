@@ -13,6 +13,8 @@ public class PlayerScrpt : EntityBase {
     public Text m_playerLifespanText;
 
     private EnemyScript enemy;
+    private bool is_Collided;
+    private Rigidbody2D rb2D;
 
     public enum PLAYER_TYPE
     {
@@ -38,7 +40,7 @@ public class PlayerScrpt : EntityBase {
 
 	// Use this for initialization
 	void Start () {
-        enemy = GameObject.FindGameObjectWithTag("Enemy").GetComponent<EnemyScript>();
+        rb2D = GetComponent<Rigidbody2D>();
         anim = this.gameObject.GetComponent<Animator>();
         m_HPSlider = m_playerHP.GetComponent<Slider>();
         m_isDead = false;
@@ -77,6 +79,7 @@ public class PlayerScrpt : EntityBase {
                     Run();
                     break;
                 case GameState.GAMESTATE.GS_ENCOUNTER:
+
                     RunFSM();
                     //Idle();
                     break;
@@ -103,11 +106,17 @@ public class PlayerScrpt : EntityBase {
 
     public override void RunFSM()
     {
+        if (!enemy)
+            enemy = GameObject.FindGameObjectWithTag("Enemy").GetComponent<EnemyScript>();
+
         if (GetNearestTarget())
         {
             Debug.Log("Testing Chase");
             Run();
-            MoveTowardsTarget();
+            if (!is_Collided)
+                MoveTowardsTarget();
+            else
+                AttackTarget(m_atkSpd);
         }
         if (m_HP <= 0 || m_lifeSpan <= 0)
         {
@@ -117,12 +126,13 @@ public class PlayerScrpt : EntityBase {
 
     void OnCollisionEnter2D(Collision2D col)
     {
+        is_Collided = true;
         Debug.Log("COLLIDE");
         if (col.gameObject.CompareTag("Enemy"))
         {
             Debug.Log("Collide Enemy!");
             col.gameObject.SendMessage("TakeDamage", col.gameObject.GetComponent<EntityBase>().m_Damage);
-            StartCoroutine(enemy.Knockback(0.02f, 350, new Vector3 (-1, 0, 0)));
+            //StartCoroutine(enemy.Knockback(0.02f, 350, new Vector3 (-1, 0, 0)));
 
             //Vector2 pew = new Vector2(240, 0);
             //col.rigidbody.AddRelativeForce(pew);
@@ -133,6 +143,18 @@ public class PlayerScrpt : EntityBase {
             Debug.Log("Collide Player!");
             col.gameObject.SendMessage("TakeDamage", col.gameObject.GetComponent<PlayerScrpt>().m_Damage);
         }
+    }
+
+    public IEnumerator Knockback(float knockDur, float knockbackPwr, Vector3 knockbackDir)
+    {
+        float timer = 0;
+
+        while (knockDur > timer)
+        {
+            timer += Time.deltaTime;
+            rb2D.AddForce(new Vector3(knockbackDir.x * -100, knockbackDir.y * knockbackPwr, transform.position.z));
+        }
+        yield return 0;
     }
 
     //public void TakeDamage(int dmg)

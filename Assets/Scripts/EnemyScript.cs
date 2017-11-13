@@ -7,10 +7,14 @@ public class EnemyScript : EntityBase {
     private Animator anim;//! Animator of Enemy to set bool/triggers in Updates
     public GameObject m_enemyHP;
     private Slider m_HPSlider;
+    private bool is_Collided;
     private Rigidbody2D rb2D;
+
+    private PlayerScrpt player;
 
 	// Use this for initialization
 	void Start () {
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerScrpt>();
         rb2D = GetComponent<Rigidbody2D>();
         anim = this.gameObject.GetComponent<Animator>();
         m_HPSlider = m_enemyHP.GetComponent<Slider>();
@@ -42,7 +46,10 @@ public class EnemyScript : EntityBase {
         {
             Debug.Log("Testing Chase");
             Run();
-            MoveTowardsTarget();
+            if (!is_Collided)
+                MoveTowardsTarget();
+            else
+                AttackTarget(m_atkSpd);
         }
         if (m_HP <= 0)
         {
@@ -60,6 +67,28 @@ public class EnemyScript : EntityBase {
             rb2D.AddForce(new Vector3(knockbackDir.x * -100, knockbackDir.y * knockbackPwr, transform.position.z));
         }
         yield return 0;
+    }
+
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        is_Collided = true;
+        //Debug.Log("COLLIDE");
+
+        //if (col.gameObject.CompareTag("Enemy"))
+        //{
+        //    Debug.Log("Collide Enemy!");
+        //    col.gameObject.SendMessage("TakeDamage", col.gameObject.GetComponent<EntityBase>().m_Damage);
+
+        //    //Vector2 pew = new Vector2(240, 0);
+        //    //col.rigidbody.AddRelativeForce(pew);
+        //    //Debug.Log("Collide PEW!");
+        //}
+        //else if (col.gameObject.CompareTag("Player"))
+        //{
+        //    Debug.Log("Collide Player!");
+        //    col.gameObject.SendMessage("TakeDamage", col.gameObject.GetComponent<PlayerScrpt>().m_Damage);
+        //    //StartCoroutine(player.Knockback(0.02f, 350, new Vector3(1, 0, 0)));
+        //}
     }
 
     #region Animation Trigger States

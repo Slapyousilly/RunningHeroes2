@@ -51,6 +51,36 @@ public abstract class EntityBase : MonoBehaviour {
         this.transform.position += Dir * Time.deltaTime * 3.0f;
     }
 
+    protected void AttackTarget(float atkSpd)
+    {
+        float timer = 0;
+        Debug.Log("Damage Dealt from: " + this.m_Name + " To: " + GetTarget().GetComponent<EntityBase>().m_Name);
+        GetTarget().SendMessage("TakeDamage", this.m_Damage);
+        while (timer < atkSpd)
+            timer += Time.deltaTime;
+        //PlayerScrpt temp;
+        //EnemyScript temp1;
+        //if (GetTarget().CompareTag("Player"))
+        //    temp = GetTarget().GetComponent<PlayerScrpt>();
+        //else
+        //    temp1 = GetTarget().GetComponent<EnemyScript>();
+
+        //if (this.tag == "Enemy")
+        //    GetTarget().SendMessage("TakeDamage", this.m_Damage);
+        //else
+    }
+
+    protected GameObject GetTarget()
+    {
+        GameObject go = null;
+        if (this.tag == "Enemy")
+            go = GameObject.FindGameObjectWithTag("Player");
+        else
+            go = GameObject.FindGameObjectWithTag("Enemy");
+
+        return go;
+    }
+
     protected GameObject GetNearestTarget()
     {
         float closetdistance = 900;

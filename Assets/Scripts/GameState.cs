@@ -46,6 +46,7 @@ public class GameState : MonoBehaviour {
             case GAMESTATE.GS_ENCOUNTER:
                 BackgroundScroll.GetComponent<BackgroundScrolling>().b_Scrolling = false;
                 m_enc.doEncounterCheck = false;
+                
                     //b_Scrolling = false;
                 break;
             case GAMESTATE.GS_VICTORY:
