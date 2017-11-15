@@ -12,6 +12,7 @@ public abstract class EntityBase : MonoBehaviour {
     public float m_flinchDt;
     public float m_resistance;
     public GameState state;
+    private float timer = 0;
 
 	// Use this for initialization
 	void Start () {
@@ -51,13 +52,23 @@ public abstract class EntityBase : MonoBehaviour {
         this.transform.position += Dir * Time.deltaTime * 3.0f;
     }
 
+    protected void MoveToPosition(Vector3 newPos)
+    {
+        //Vector2.Distance(this.gameObject.transform.position, GetNearestTarget().transform.position);
+        Vector3 Dir = (newPos - this.transform.position).normalized;
+        Dir.z = 0;
+        this.transform.position += Dir * Time.deltaTime * 3.0f;
+    }
+
     protected void AttackTarget(float atkSpd)
     {
-        float timer = 0;
-        Debug.Log("Damage Dealt from: " + this.m_Name + " To: " + GetTarget().GetComponent<EntityBase>().m_Name);
-        GetTarget().SendMessage("TakeDamage", this.m_Damage);
-        while (timer < atkSpd)
-            timer += Time.deltaTime;
+        timer += Time.deltaTime;
+        while (timer > atkSpd)
+        {
+            Debug.Log("Damage Dealt from: " + this.m_Name + " To: " + GetTarget().GetComponent<EntityBase>().m_Name);
+            GetTarget().SendMessage("TakeDamage", this.m_Damage);
+            timer = 0;
+        }
         //PlayerScrpt temp;
         //EnemyScript temp1;
         //if (GetTarget().CompareTag("Player"))

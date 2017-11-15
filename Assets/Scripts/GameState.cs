@@ -46,7 +46,12 @@ public class GameState : MonoBehaviour {
             case GAMESTATE.GS_ENCOUNTER:
                 BackgroundScroll.GetComponent<BackgroundScrolling>().b_Scrolling = false;
                 m_enc.doEncounterCheck = false;
-                
+                if (!GameObject.FindGameObjectWithTag("Enemy"))
+                {
+                    delay += Time.fixedTime;
+                    if (delay > 2.0f)
+                        gameState = GAMESTATE.GS_PLAY;
+                }
                     //b_Scrolling = false;
                 break;
             case GAMESTATE.GS_VICTORY:

@@ -59,12 +59,19 @@ public class PlayerScrpt : EntityBase {
 	
 	// Update is called once per frame
 	void Update () {
-        //m_HPSlider.value = m_HP;
+        m_HPSlider.value = m_HP;
         //Time.timeScale = 0; //can use to pause game or do shit.
         m_lifeSpan -= Time.deltaTime;
 
         m_playerLifespan.GetComponent<Image>().fillAmount = (m_lifeSpan / m_maxlifeSpan);
         m_playerLifespanText.text = System.Math.Round(m_lifeSpan, 1) +"%";
+
+        if (state.gameState != GameState.GAMESTATE.GS_ENCOUNTER)
+        {
+            is_Collided = false;
+            //move back to the original pos
+            MoveToPosition(new Vector3(-7.08f, -3.1f, 0));
+        }
         
 
         if (state.gameState != GameState.GAMESTATE.GS_TUTORIAL)
@@ -111,12 +118,15 @@ public class PlayerScrpt : EntityBase {
 
         if (GetNearestTarget())
         {
-            Debug.Log("Testing Chase");
+            Debug.Log("Player Chase");
             Run();
             if (!is_Collided)
                 MoveTowardsTarget();
             else
+            {
+                Attack();
                 AttackTarget(m_atkSpd);
+            }
         }
         if (m_HP <= 0 || m_lifeSpan <= 0)
         {
@@ -128,21 +138,21 @@ public class PlayerScrpt : EntityBase {
     {
         is_Collided = true;
         Debug.Log("COLLIDE");
-        if (col.gameObject.CompareTag("Enemy"))
-        {
-            Debug.Log("Collide Enemy!");
-            col.gameObject.SendMessage("TakeDamage", col.gameObject.GetComponent<EntityBase>().m_Damage);
-            //StartCoroutine(enemy.Knockback(0.02f, 350, new Vector3 (-1, 0, 0)));
+        //if (col.gameObject.CompareTag("Enemy"))
+        //{
+        //    Debug.Log("Collide Enemy!");
+        //    col.gameObject.SendMessage("TakeDamage", col.gameObject.GetComponent<EntityBase>().m_Damage);
+        //    //StartCoroutine(enemy.Knockback(0.02f, 350, new Vector3 (-1, 0, 0)));
 
-            //Vector2 pew = new Vector2(240, 0);
-            //col.rigidbody.AddRelativeForce(pew);
-            //Debug.Log("Collide PEW!");
-        }
-        else if (col.gameObject.CompareTag("Player"))
-        {
-            Debug.Log("Collide Player!");
-            col.gameObject.SendMessage("TakeDamage", col.gameObject.GetComponent<PlayerScrpt>().m_Damage);
-        }
+        //    //Vector2 pew = new Vector2(240, 0);
+        //    //col.rigidbody.AddRelativeForce(pew);
+        //    //Debug.Log("Collide PEW!");
+        //}
+        //else if (col.gameObject.CompareTag("Player"))
+        //{
+        //    Debug.Log("Collide Player!");
+        //    col.gameObject.SendMessage("TakeDamage", col.gameObject.GetComponent<PlayerScrpt>().m_Damage);
+        //}
     }
 
     public IEnumerator Knockback(float knockDur, float knockbackPwr, Vector3 knockbackDir)

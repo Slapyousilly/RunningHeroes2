@@ -29,6 +29,7 @@ public class EnemyScript : EntityBase {
         m_Name = "Hero";
         m_Damage = 200;
         m_resistance = 1.0f;
+        is_Collided = false;
 	}
     //void Start (string m_Name, int m_HP, float m_atkSpd, float m_flinctDT, int m_Damage, float m_resistance)
     //{
@@ -44,16 +45,20 @@ public class EnemyScript : EntityBase {
     {
         if (GetNearestTarget())
         {
-            Debug.Log("Testing Chase");
+            Debug.Log("Enemy Chase");
             Run();
             if (!is_Collided)
                 MoveTowardsTarget();
             else
+            {
+                Attack();
                 AttackTarget(m_atkSpd);
+            }
         }
         if (m_HP <= 0)
         {
             Die();
+            Destroy(this.gameObject);
         }
     }
 
@@ -72,7 +77,7 @@ public class EnemyScript : EntityBase {
     void OnCollisionEnter2D(Collision2D col)
     {
         is_Collided = true;
-        //Debug.Log("COLLIDE");
+        Debug.Log("OH I never check properly lol");
 
         //if (col.gameObject.CompareTag("Enemy"))
         //{

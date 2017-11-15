@@ -21,6 +21,10 @@ public class EncounterSystem : MonoBehaviour {
     public GameObject GameStateThing;
     private GameState m_gstate;
 
+    public GameObject Monster;
+
+    public int spawnCount;
+
     public enum ENCOUNTERS                  // Encounters Players will get
     {
         E_WEAPONUP,
@@ -38,6 +42,7 @@ public class EncounterSystem : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        spawnCount = 0;
         doEncounterCheck = true;
         m_gstate = GameStateThing.GetComponent<GameState>();
         m_Player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerScrpt>();  // Finding player and getting details from player directly
@@ -91,6 +96,11 @@ public class EncounterSystem : MonoBehaviour {
             case ENCOUNTERS.E_MONSTERS:
                 feedbackText.text = "Use your skills!";
                 m_gstate.gameState = GameState.GAMESTATE.GS_ENCOUNTER;
+                if (spawnCount < 1)
+                {
+                    Instantiate(Monster, new Vector3(10, -2.2f, 0), Quaternion.identity);   //Spawn Monster
+                    spawnCount++;
+                }
                 break;
             case ENCOUNTERS.E_BOSS:
                 feedbackText.text = "Use your skills!";
@@ -127,6 +137,7 @@ public class EncounterSystem : MonoBehaviour {
 
     void EncounterReset()
     {
+        spawnCount = 0;
         _encounters.RemoveAt(0);
         Debug.Log(NextEncounterAdd());
         _encounters.Add(NextEncounterAdd());
@@ -135,7 +146,7 @@ public class EncounterSystem : MonoBehaviour {
         m_bufferdt = 2.0f;
     }
 
-    ENCOUNTERS NextEncounterAdd()
+    protected ENCOUNTERS NextEncounterAdd()
     {
         _encounters.Contains(ENCOUNTERS.E_SHRINE); // Returns true if it does contain inside List.
         //_encounters[0];
@@ -156,9 +167,14 @@ public class EncounterSystem : MonoBehaviour {
         return ENCOUNTERS.E_END;
     }
 
-    ENCOUNTERS CurrEncounterCheck()
+    protected ENCOUNTERS CurrEncounterCheck()
     {
         return _encounters[0];
+    }
+
+    protected List<ENCOUNTERS> EncounterList()
+    {
+        return _encounters;
     }
     #endregion 
 }
