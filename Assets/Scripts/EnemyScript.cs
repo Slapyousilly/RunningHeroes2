@@ -45,7 +45,7 @@ public class EnemyScript : EntityBase {
     {
         if (GetNearestTarget())
         {
-            Debug.Log("Enemy Chase");
+            //Debug.Log("Enemy Chase");
             Run();
             if (!is_Collided)
                 MoveTowardsTarget();
@@ -77,7 +77,7 @@ public class EnemyScript : EntityBase {
     void OnCollisionEnter2D(Collision2D col)
     {
         is_Collided = true;
-        Debug.Log("OH I never check properly lol");
+        //Debug.Log("OH I never check properly lol");
 
         //if (col.gameObject.CompareTag("Enemy"))
         //{

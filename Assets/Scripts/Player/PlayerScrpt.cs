@@ -8,6 +8,7 @@ public class PlayerScrpt : EntityBase {
     public float m_lifeSpan;
     private float m_maxlifeSpan;
     public GameObject m_playerHP;
+    public Text m_playerHPText;
     private Slider m_HPSlider;
     public GameObject m_playerLifespan;
     public Text m_playerLifespanText;
@@ -60,6 +61,7 @@ public class PlayerScrpt : EntityBase {
 	// Update is called once per frame
 	void Update () {
         m_HPSlider.value = m_HP;
+        m_playerHPText.text = "HP: " + m_HP + "/" + m_maxHP;
         //Time.timeScale = 0; //can use to pause game or do shit.
         m_lifeSpan -= Time.deltaTime;
 
@@ -118,10 +120,12 @@ public class PlayerScrpt : EntityBase {
 
         if (GetNearestTarget())
         {
-            Debug.Log("Player Chase");
-            Run();
+            //Debug.Log("Player Chase");
             if (!is_Collided)
+            {
+                Run();
                 MoveTowardsTarget();
+            }
             else
             {
                 Attack();
@@ -130,6 +134,7 @@ public class PlayerScrpt : EntityBase {
         }
         if (m_HP <= 0 || m_lifeSpan <= 0)
         {
+            state.gameState = GameState.GAMESTATE.GS_DEFEAT;
             Die();
         }
     }
@@ -137,7 +142,7 @@ public class PlayerScrpt : EntityBase {
     void OnCollisionEnter2D(Collision2D col)
     {
         is_Collided = true;
-        Debug.Log("COLLIDE");
+
         //if (col.gameObject.CompareTag("Enemy"))
         //{
         //    Debug.Log("Collide Enemy!");
@@ -185,9 +190,10 @@ public class PlayerScrpt : EntityBase {
 
         anim.SetTrigger("RUN");
     }
-    void Skill1()
+    public void Skill1()
     {
         anim.SetTrigger("SKILL1");
+        AttackTarget(m_Damage * 3, 0.2f);
     }
     void Skill2()
     {

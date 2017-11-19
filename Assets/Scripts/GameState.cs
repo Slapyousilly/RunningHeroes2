@@ -17,6 +17,7 @@ public class GameState : MonoBehaviour {
 
     public GAMESTATE gameState;
     public bool m_tutorialdone;
+    public GameObject GameOverImage;
 
     public GameObject BackgroundScroll;
     public GameObject EncounterThing;
@@ -59,6 +60,7 @@ public class GameState : MonoBehaviour {
                 break;
             case GAMESTATE.GS_DEFEAT:
                 BackgroundScroll.GetComponent<BackgroundScrolling>().b_Scrolling = false;
+                GameOverImage.SetActive(true);
                 break;
             case GAMESTATE.GS_START:
                 BackgroundScroll.GetComponent<BackgroundScrolling>().b_Scrolling = false;

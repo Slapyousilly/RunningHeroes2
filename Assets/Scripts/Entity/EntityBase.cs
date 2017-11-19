@@ -81,6 +81,12 @@ public abstract class EntityBase : MonoBehaviour {
         //else
     }
 
+    protected void AttackTarget(int atkDmg, float resist)
+    {
+        Debug.Log("Spell DMG from: " + this.m_Name + " To: " + GetTarget().GetComponent<EntityBase>().m_Name);
+        GetTarget().SendMessage("TakeDamage", atkDmg);
+    }
+
     protected GameObject GetTarget()
     {
         GameObject go = null;

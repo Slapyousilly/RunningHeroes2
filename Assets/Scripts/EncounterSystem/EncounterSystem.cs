@@ -25,6 +25,8 @@ public class EncounterSystem : MonoBehaviour {
 
     public int spawnCount;
 
+    private EncounterUI UIUIThing;
+
     public enum ENCOUNTERS                  // Encounters Players will get
     {
         E_WEAPONUP,
@@ -36,7 +38,7 @@ public class EncounterSystem : MonoBehaviour {
         E_END,
     }
     //public ENCOUNTERS[] _encounters; //
-    List<ENCOUNTERS> _encounters = new List<ENCOUNTERS>(); // List of Encounters
+    public List<ENCOUNTERS> _encounters = new List<ENCOUNTERS>(); // List of Encounters
 
     // _encounters = new ENCOUNTERS[]{E_WEAPONUP, E_REPAIR};
 
@@ -46,11 +48,14 @@ public class EncounterSystem : MonoBehaviour {
         doEncounterCheck = true;
         m_gstate = GameStateThing.GetComponent<GameState>();
         m_Player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerScrpt>();  // Finding player and getting details from player directly
+        UIUIThing = GameObject.FindGameObjectWithTag("UIEncounter").GetComponent<EncounterUI>();
         _encounters.Add(ENCOUNTERS.E_WEAPONUP); //= new ENCOUNTERS[5] { ENCOUNTERS.E_WEAPONUP, ENCOUNTERS.E_MONSTERS, ENCOUNTERS.E_MONSTERS, ENCOUNTERS.E_SHRINE, ENCOUNTERS.E_ARMORUP };
         _encounters.Add(ENCOUNTERS.E_MONSTERS);
         _encounters.Add(ENCOUNTERS.E_MONSTERS);
         _encounters.Add(ENCOUNTERS.E_SHRINE);
         _encounters.Add(ENCOUNTERS.E_ARMORUP);
+
+        //UIUIThing.InitialRun();
     }
 	
 	// Update is called once per frame
@@ -83,15 +88,38 @@ public class EncounterSystem : MonoBehaviour {
         {
             case ENCOUNTERS.E_ARMORUP:
                 feedbackText.text = "Tap to Upgrade Armor";
+                if (Input.GetMouseButtonDown(0))
+                {
+                    int newMaxHP = (int)((float)m_Player.m_maxHP * 1.2f);
+                    m_Player.m_maxHP = newMaxHP;
+                    feedbackText.text = "Armor Upgraded!";
+                    m_Player.m_HP = m_Player.m_maxHP;
+                }
                 break;
             case ENCOUNTERS.E_WEAPONUP:
                 feedbackText.text = "Tap to Upgrade Weapon";
+                if (Input.GetMouseButtonDown(0))
+                {
+                    feedbackText.text = "Weapon Upgraded!";
+                    int newDMG = (int)((float)m_Player.m_Damage * 1.2f);
+                    m_Player.m_Damage = newDMG;
+                }
                 break;
             case ENCOUNTERS.E_REPAIR:
                 feedbackText.text = "Tap to Repair Armor";
+                if (Input.GetMouseButtonDown(0))
+                {
+                    feedbackText.text = "Armor Repaired!";
+                    m_Player.m_HP = m_Player.m_maxHP;
+                }
                 break;
             case ENCOUNTERS.E_SHRINE:
                 feedbackText.text = "Tap to Increase Lifespan";
+                if (Input.GetMouseButtonDown(0))
+                {
+                    feedbackText.text = "Lifespan Recovered!";
+                    m_Player.m_lifeSpan = 100;
+                }
                 break;
             case ENCOUNTERS.E_MONSTERS:
                 feedbackText.text = "Use your skills!";
@@ -139,14 +167,17 @@ public class EncounterSystem : MonoBehaviour {
     {
         spawnCount = 0;
         _encounters.RemoveAt(0);
-        Debug.Log(NextEncounterAdd());
-        _encounters.Add(NextEncounterAdd());
+        ENCOUNTERS nextToAdd = NextEncounterAdd();
+        Debug.Log(nextToAdd);
+        _encounters.Add(nextToAdd);
+        UIUIThing.AddUINextEncounter(nextToAdd);
+        UIUIThing.RemoveUIEncounter();
         feedbackText.text = "";
         m_nextEncounterDt = 2.0f;
         m_bufferdt = 2.0f;
     }
 
-    protected ENCOUNTERS NextEncounterAdd()
+    public ENCOUNTERS NextEncounterAdd()
     {
         _encounters.Contains(ENCOUNTERS.E_SHRINE); // Returns true if it does contain inside List.
         //_encounters[0];
@@ -154,20 +185,51 @@ public class EncounterSystem : MonoBehaviour {
         {
             // Add new encounter logic
             // Determine next encounter
-            if (m_Player.m_lifeSpan < 30.0f && !_encounters.Contains(ENCOUNTERS.E_SHRINE))
+
+            if (m_Player.m_lifeSpan < 40.0f && !_encounters.Contains(ENCOUNTERS.E_SHRINE))
                 return ENCOUNTERS.E_SHRINE;
-            if (m_Player.m_HP <= m_Player.m_maxHP * 0.75f)
+
+            float randfVal = Random.RandomRange(0.0f, 1.2f);
+            Debug.Log(randfVal);
+
+            if (randfVal <= 0.2f && !_encounters.Contains(ENCOUNTERS.E_SHRINE))
+                return ENCOUNTERS.E_SHRINE;
+            else
+                while (randfVal <= 0.2f)
+                    randfVal = Random.RandomRange(0.0f, 1.0f);
+
+            if (randfVal > 0.2f && randfVal <= 0.4f)
+                return ENCOUNTERS.E_MONSTERS;
+
+            if (randfVal > 0.4f && randfVal <= 0.6f && !_encounters.Contains(ENCOUNTERS.E_WEAPONUP))
+                return ENCOUNTERS.E_WEAPONUP;
+            else
+                while (randfVal > 0.4f && randfVal <= 0.6f)
+                    randfVal = Random.RandomRange(0.0f, 1.0f);
+
+            if (randfVal > 0.6f && randfVal <= 0.8f)
+                return ENCOUNTERS.E_ARMORUP;
+            else
+                while (randfVal > 0.6f && randfVal <= 0.8f)
+                    randfVal = Random.RandomRange(0.0f, 1.0f);
+
+            if (randfVal > 0.8f && randfVal <= 1.0f && m_Player.m_HP <= m_Player.m_maxHP * 0.75f)
                 return ENCOUNTERS.E_REPAIR;
             else
-                return ENCOUNTERS.E_MONSTERS;
-        }
-        else
-            return ENCOUNTERS.E_MONSTERS;
+                while (randfVal > 0.8f && randfVal <= 1.0f)
+                    randfVal = Random.RandomRange(0.0f, 1.0f);
 
-        return ENCOUNTERS.E_END;
+
+            //if (m_Player.m_HP <= m_Player.m_maxHP * 0.75f)
+            //    return ENCOUNTERS.E_REPAIR;
+            //else
+            //    return ENCOUNTERS.E_MONSTERS;
+        }
+
+        return ENCOUNTERS.E_MONSTERS;
     }
 
-    protected ENCOUNTERS CurrEncounterCheck()
+    public ENCOUNTERS CurrEncounterCheck()
     {
         return _encounters[0];
     }
