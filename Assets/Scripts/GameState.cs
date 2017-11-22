@@ -49,8 +49,8 @@ public class GameState : MonoBehaviour {
                 m_enc.doEncounterCheck = false;
                 if (!GameObject.FindGameObjectWithTag("Enemy"))
                 {
-                    delay += Time.fixedTime;
-                    if (delay > 2.0f)
+                    //delay += Time.fixedTime;
+                    //if (delay > 2.0f)
                         gameState = GAMESTATE.GS_PLAY;
                 }
                     //b_Scrolling = false;

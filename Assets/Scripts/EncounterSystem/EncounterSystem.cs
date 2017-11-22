@@ -6,13 +6,15 @@ using UnityEngine.UI;
 public class EncounterSystem : MonoBehaviour {
 
     // Check for Player status and give next encounter to be the one to benefit more (still chance)
+    public List<GameObject> UIBackground = new List<GameObject>();
+    private GameObject background;
 
     public PlayerScrpt m_Player;            // Player Script object.
     private float m_RandomChance;           // Random factor to determine next encounter
     private float m_Encounterdt;            // current encounter time
     public float m_nextEncounterDt = 4.0f;  // fixed next encounter time
 
-    public float m_bufferdt = 4.0f;
+    public float m_bufferdt = 4.5f;
     private float m_nextbufferDt;     
 
     public Text feedbackText;               // Text to ask player to tap
@@ -26,6 +28,8 @@ public class EncounterSystem : MonoBehaviour {
     public int spawnCount;
 
     private EncounterUI UIUIThing;
+    private bool bgCreate;
+    private GameObject BGBG;
 
     public enum ENCOUNTERS                  // Encounters Players will get
     {
@@ -44,16 +48,18 @@ public class EncounterSystem : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        bgCreate = true;
         spawnCount = 0;
         doEncounterCheck = true;
         m_gstate = GameStateThing.GetComponent<GameState>();
         m_Player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerScrpt>();  // Finding player and getting details from player directly
         UIUIThing = GameObject.FindGameObjectWithTag("UIEncounter").GetComponent<EncounterUI>();
+        //background = GameObject.FindGameObjectWithTag("Background");
         _encounters.Add(ENCOUNTERS.E_WEAPONUP); //= new ENCOUNTERS[5] { ENCOUNTERS.E_WEAPONUP, ENCOUNTERS.E_MONSTERS, ENCOUNTERS.E_MONSTERS, ENCOUNTERS.E_SHRINE, ENCOUNTERS.E_ARMORUP };
-        _encounters.Add(ENCOUNTERS.E_MONSTERS);
-        _encounters.Add(ENCOUNTERS.E_MONSTERS);
         _encounters.Add(ENCOUNTERS.E_SHRINE);
         _encounters.Add(ENCOUNTERS.E_ARMORUP);
+        _encounters.Add(ENCOUNTERS.E_REPAIR);
+        _encounters.Add(ENCOUNTERS.E_MONSTERS);
 
         //UIUIThing.InitialRun();
     }
@@ -87,6 +93,8 @@ public class EncounterSystem : MonoBehaviour {
         switch (CurrEncounterCheck())
         {
             case ENCOUNTERS.E_ARMORUP:
+                //Instantiate(UIBackground[1]);
+                createBackground(1);
                 feedbackText.text = "Tap to Upgrade Armor";
                 if (Input.GetMouseButtonDown(0))
                 {
@@ -97,6 +105,8 @@ public class EncounterSystem : MonoBehaviour {
                 }
                 break;
             case ENCOUNTERS.E_WEAPONUP:
+                //Instantiate(UIBackground[2]);
+                createBackground(2);
                 feedbackText.text = "Tap to Upgrade Weapon";
                 if (Input.GetMouseButtonDown(0))
                 {
@@ -106,6 +116,8 @@ public class EncounterSystem : MonoBehaviour {
                 }
                 break;
             case ENCOUNTERS.E_REPAIR:
+                //Instantiate(UIBackground[0]);
+                createBackground(0);
                 feedbackText.text = "Tap to Repair Armor";
                 if (Input.GetMouseButtonDown(0))
                 {
@@ -114,6 +126,8 @@ public class EncounterSystem : MonoBehaviour {
                 }
                 break;
             case ENCOUNTERS.E_SHRINE:
+                //Instantiate(UIBackground[3]);
+                createBackground(3);
                 feedbackText.text = "Tap to Increase Lifespan";
                 if (Input.GetMouseButtonDown(0))
                 {
@@ -137,6 +151,17 @@ public class EncounterSystem : MonoBehaviour {
         }
     }
 
+    void createBackground(int theNum)
+    {
+        if (bgCreate)
+        {
+             BGBG = Instantiate(UIBackground[theNum]) as GameObject;
+             //BGBG.transform.SetParent(background.transform);
+             BGBG.transform.localPosition = new Vector3(4,-5, 0);
+             bgCreate = false;
+            //background;
+        }
+    }
 
     #region Encounter Checks
     private void AddEncounter(ENCOUNTERS enc)
@@ -165,6 +190,8 @@ public class EncounterSystem : MonoBehaviour {
 
     void EncounterReset()
     {
+        Destroy(BGBG);
+        bgCreate = true;
         spawnCount = 0;
         _encounters.RemoveAt(0);
         ENCOUNTERS nextToAdd = NextEncounterAdd();
@@ -174,7 +201,7 @@ public class EncounterSystem : MonoBehaviour {
         UIUIThing.RemoveUIEncounter();
         feedbackText.text = "";
         m_nextEncounterDt = 2.0f;
-        m_bufferdt = 2.0f;
+        m_bufferdt = 4.5f;
     }
 
     public ENCOUNTERS NextEncounterAdd()

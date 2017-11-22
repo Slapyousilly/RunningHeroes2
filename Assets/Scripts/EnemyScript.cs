@@ -6,7 +6,7 @@ public class EnemyScript : EntityBase {
 
     private Animator anim;//! Animator of Enemy to set bool/triggers in Updates
     public GameObject m_enemyHP;
-    private Slider m_HPSlider;
+    private Image m_HPSlider;
     private bool is_Collided;
     private Rigidbody2D rb2D;
 
@@ -17,16 +17,20 @@ public class EnemyScript : EntityBase {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerScrpt>();
         rb2D = GetComponent<Rigidbody2D>();
         anim = this.gameObject.GetComponent<Animator>();
-        m_HPSlider = m_enemyHP.GetComponent<Slider>();
+
+        GameObject healthbar = Instantiate(m_enemyHP) as GameObject; //, new Vector3(0, 0, 0), Quaternion.identity
+        healthbar.transform.SetParent(this.gameObject.transform);
+
+        m_HPSlider = GameObject.FindGameObjectWithTag("healthTest").GetComponent<Image>(); 
+            //m_enemyHP.GetComponentInChildren<Image>();
+
         state = GameObject.FindGameObjectWithTag("GameStateSystem").GetComponent<GameState>();
         m_isDead = false;
         m_HP = 1000;
         m_maxHP = m_HP;
-        m_HPSlider.maxValue = m_maxHP;
-        m_HPSlider.value = m_HP;
         m_atkSpd = 1.1f;
         m_flinchDt = 0.5f;
-        m_Name = "Hero";
+        m_Name = "pew";
         m_Damage = 200;
         m_resistance = 1.0f;
         is_Collided = false;
@@ -38,6 +42,8 @@ public class EnemyScript : EntityBase {
 	
 	// Update is called once per frame
 	void Update () {
+        //m_HPSlider.fillAmount = 0.5f;
+        m_HPSlider.fillAmount = ((float)m_HP / (float)m_maxHP);
         RunFSM();
 	}
 
