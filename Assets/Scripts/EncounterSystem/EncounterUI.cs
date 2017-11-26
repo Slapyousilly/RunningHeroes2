@@ -18,6 +18,8 @@ public class EncounterUI : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        //Time.timeScale = 0.0f; DO HERE IDK WHY IT ONLY WORKS HERE
+
         if (!initRunDone)
             InitialRun();
 

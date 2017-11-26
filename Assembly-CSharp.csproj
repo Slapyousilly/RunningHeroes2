@@ -50,6 +50,7 @@
      <Compile Include="Assets\Scripts\EncounterSystem\EncounterUI.cs" />
      <Compile Include="Assets\Scripts\EnemyScript.cs" />
      <Compile Include="Assets\Scripts\Entity\EntityBase.cs" />
+     <Compile Include="Assets\Scripts\FadeInOutScript.cs" />
      <Compile Include="Assets\Scripts\GameState.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerScrpt.cs" />
  <Reference Include="UnityEngine.UI">
