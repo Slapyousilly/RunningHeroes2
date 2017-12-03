@@ -12,10 +12,14 @@ public class PlayerScrpt : EntityBase {
     private Slider m_HPSlider;
     public GameObject m_playerLifespan;
     public Text m_playerLifespanText;
+    public GameObject m_playerMoney;
+    private Text m_playerMoneyText;
 
     private EnemyScript enemy;
     private bool is_Collided;
     private Rigidbody2D rb2D;
+
+    public int m_money;
 
     public enum PLAYER_TYPE
     {
@@ -44,6 +48,7 @@ public class PlayerScrpt : EntityBase {
         rb2D = GetComponent<Rigidbody2D>();
         anim = this.gameObject.GetComponent<Animator>();
         m_HPSlider = m_playerHP.GetComponent<Slider>();
+        m_playerMoneyText = m_playerMoney.GetComponent<Text>();
         m_isDead = false;
         m_HP = 1000;
         m_maxHP = m_HP;
@@ -56,12 +61,14 @@ public class PlayerScrpt : EntityBase {
         m_resistance = 1.0f;
         m_lifeSpan = 100.0f;
         m_maxlifeSpan = m_lifeSpan;
+        m_money = 500;
 	}
 	
 	// Update is called once per frame
 	void Update () {
         m_HPSlider.value = m_HP;
         m_playerHPText.text = "HP: " + m_HP + "/" + m_maxHP;
+        m_playerMoneyText.text = ""+m_money;
         //Time.timeScale = 0; //can use to pause game or do shit.
         m_lifeSpan -= Time.deltaTime;
 
@@ -70,6 +77,7 @@ public class PlayerScrpt : EntityBase {
 
         if (state.gameState != GameState.GAMESTATE.GS_ENCOUNTER)
         {
+            Run();
             is_Collided = false;
             //move back to the original pos
             MoveToPosition(new Vector3(-7.08f, -3.1f, 0));
@@ -111,6 +119,11 @@ public class PlayerScrpt : EntityBase {
         }
         //RunFSM(GetComponent<GameState>().gameState);
         //anim.SetTrigger("RUN");
+    }
+
+    public void updateMoney()
+    {
+        m_playerMoneyText.text = m_money.ToString();
     }
 
     public override void RunFSM()

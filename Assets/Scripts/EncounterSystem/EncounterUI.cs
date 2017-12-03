@@ -11,14 +11,16 @@ public class EncounterUI : MonoBehaviour {
     private GameObject UIAdd;
     public List<GameObject> UIShow = new List<GameObject>();
 	// Use this for initialization
+    public bool pause;
 	void Start () {
         hehe = GameObject.FindGameObjectWithTag("EncounterSystem").GetComponent<EncounterSystem>();
-        initRunDone = addNextDone = false;
+        initRunDone = addNextDone = pause = false;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        //Time.timeScale = 0.0f; DO HERE IDK WHY IT ONLY WORKS HERE
+        //Time.timeScale = 0.0f; //DO HERE IDK WHY IT ONLY WORKS HERE
+        pauseUnpauseGame();
 
         if (!initRunDone)
             InitialRun();
@@ -33,6 +35,14 @@ public class EncounterUI : MonoBehaviour {
         //    AddUINextEncounter();
         //EncounterList()[0];
 	}
+
+    public void pauseUnpauseGame()
+    {
+        if (pause)
+            Time.timeScale = 0.0f;
+        else
+            Time.timeScale = 1.0f;
+    }
 
     public void InitialRun()
     {

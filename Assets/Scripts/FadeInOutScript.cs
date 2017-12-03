@@ -8,7 +8,8 @@ public class FadeInOutScript : MonoBehaviour
     public Texture2D fadeTexture;
     public float fadeSpeed = 0.9f;
     public int drawDepth = -1000;
-    private float alpha = 0.0f;
+    [HideInInspector]
+    public float alpha = 0.0f;
     private float alphaIn = 1.0f;
     private float alphaPew = 0.7f;
     private int fadeDir = -1;

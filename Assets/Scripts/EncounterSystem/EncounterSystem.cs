@@ -31,6 +31,13 @@ public class EncounterSystem : MonoBehaviour {
     private bool bgCreate;
     private GameObject BGBG;
 
+    public int shrineCost = 50;                  // Shrine Cost
+    public int repairCost = 75;                  // Armor Repair Cost
+    public int AupgradeCost = 200;               // Armor Upgrade Cost
+    public int WupgradeCost = 200;               // Weapon Upgrade Cost
+
+    private bool displayIt;
+
     public enum ENCOUNTERS                  // Encounters Players will get
     {
         E_WEAPONUP,
@@ -48,6 +55,7 @@ public class EncounterSystem : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        displayIt = true;
         bgCreate = true;
         spawnCount = 0;
         doEncounterCheck = true;
@@ -95,44 +103,60 @@ public class EncounterSystem : MonoBehaviour {
             case ENCOUNTERS.E_ARMORUP:
                 //Instantiate(UIBackground[1]);
                 createBackground(1);
-                feedbackText.text = "Tap to Upgrade Armor";
-                if (Input.GetMouseButtonDown(0))
+                if (displayIt)
+                    feedbackText.text = "Tap to Upgrade Armor Cost: " + AupgradeCost;
+                if (Input.GetMouseButtonDown(0) && m_Player.m_money >= AupgradeCost && displayIt)
                 {
+                    displayIt = false;
+                    m_Player.m_money -= AupgradeCost;
                     int newMaxHP = (int)((float)m_Player.m_maxHP * 1.2f);
                     m_Player.m_maxHP = newMaxHP;
                     feedbackText.text = "Armor Upgraded!";
                     m_Player.m_HP = m_Player.m_maxHP;
+                    AupgradeCost += 50;
                 }
                 break;
             case ENCOUNTERS.E_WEAPONUP:
                 //Instantiate(UIBackground[2]);
                 createBackground(2);
-                feedbackText.text = "Tap to Upgrade Weapon";
-                if (Input.GetMouseButtonDown(0))
+                if (displayIt)
+                    feedbackText.text = "Tap to Upgrade Weapon Cost: " + WupgradeCost;
+                if (Input.GetMouseButtonDown(0) && m_Player.m_money >= WupgradeCost && displayIt)
                 {
+                    displayIt = false;
+                    m_Player.m_money -= WupgradeCost;
                     feedbackText.text = "Weapon Upgraded!";
                     int newDMG = (int)((float)m_Player.m_Damage * 1.2f);
                     m_Player.m_Damage = newDMG;
+                    WupgradeCost += 50;
                 }
                 break;
             case ENCOUNTERS.E_REPAIR:
                 //Instantiate(UIBackground[0]);
                 createBackground(0);
-                feedbackText.text = "Tap to Repair Armor";
-                if (Input.GetMouseButtonDown(0))
+                if (displayIt)
+                    feedbackText.text = "Tap to Repair Armor Cost: " + repairCost;
+                if (Input.GetMouseButtonDown(0) && m_Player.m_money >= repairCost && displayIt)
                 {
+                    displayIt = false;
+                    m_Player.m_money -= repairCost;
                     feedbackText.text = "Armor Repaired!";
                     m_Player.m_HP = m_Player.m_maxHP;
+                    repairCost += 20;
                 }
                 break;
             case ENCOUNTERS.E_SHRINE:
                 //Instantiate(UIBackground[3]);
                 createBackground(3);
-                feedbackText.text = "Tap to Increase Lifespan";
-                if (Input.GetMouseButtonDown(0))
+                if (displayIt)
+                    feedbackText.text = "Tap to Increase Lifespan Cost: " + shrineCost;
+                if (Input.GetMouseButtonDown(0) && m_Player.m_money >= shrineCost && displayIt)
                 {
+                    displayIt = false;
+                    m_Player.m_money -= shrineCost;
                     feedbackText.text = "Lifespan Recovered!";
                     m_Player.m_lifeSpan = 100;
+                    shrineCost += 20;
                 }
                 break;
             case ENCOUNTERS.E_MONSTERS:
@@ -191,7 +215,7 @@ public class EncounterSystem : MonoBehaviour {
     void EncounterReset()
     {
         Destroy(BGBG);
-        bgCreate = true;
+        bgCreate = displayIt = true;
         spawnCount = 0;
         _encounters.RemoveAt(0);
         ENCOUNTERS nextToAdd = NextEncounterAdd();
