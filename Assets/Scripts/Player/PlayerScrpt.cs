@@ -20,6 +20,7 @@ public class PlayerScrpt : EntityBase {
     private Rigidbody2D rb2D;
 
     public int m_money;
+    private float testfloat;
 
     public enum PLAYER_TYPE
     {
@@ -58,6 +59,7 @@ public class PlayerScrpt : EntityBase {
         m_flinchDt = 0.5f;
         m_Name = "Hero";
         m_Damage = 200;
+        m_DamageRng = 50;           // Default 50
         m_resistance = 1.0f;
         m_lifeSpan = 100.0f;
         m_maxlifeSpan = m_lifeSpan;
@@ -105,7 +107,7 @@ public class PlayerScrpt : EntityBase {
                 case GameState.GAMESTATE.GS_DEFEAT:
                     break;
                 case GameState.GAMESTATE.GS_START:
-                    Idle();
+                    //Idle();
                     break;
                 case GameState.GAMESTATE.GS_TUTORIAL:
                     //anim.speed = 0;
@@ -115,6 +117,7 @@ public class PlayerScrpt : EntityBase {
         }
         else
         {
+            state.gameState = GameState.GAMESTATE.GS_DEFEAT;
             Die();
         }
         //RunFSM(GetComponent<GameState>().gameState);
@@ -141,7 +144,14 @@ public class PlayerScrpt : EntityBase {
             }
             else
             {
-                Attack();
+                testfloat += Time.deltaTime;
+                if (testfloat >= m_atkSpd)
+                {
+                    Attack();
+                    testfloat = 0.0f;
+                }
+                else
+                    Idle();
                 AttackTarget(m_atkSpd);
             }
         }
@@ -206,7 +216,8 @@ public class PlayerScrpt : EntityBase {
     public void Skill1()
     {
         anim.SetTrigger("SKILL1");
-        AttackTarget(m_Damage * 3, 0.2f);
+        int demDamage = Random.Range(m_Damage - m_DamageRng, m_Damage + m_DamageRng);
+        AttackTarget(demDamage * 3, 0.2f);
     }
     void Skill2()
     {

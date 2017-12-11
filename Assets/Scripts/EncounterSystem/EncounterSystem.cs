@@ -160,10 +160,10 @@ public class EncounterSystem : MonoBehaviour {
                 }
                 break;
             case ENCOUNTERS.E_MONSTERS:
-                feedbackText.text = "Use your skills!";
-                m_gstate.gameState = GameState.GAMESTATE.GS_ENCOUNTER;
                 if (spawnCount < 1)
                 {
+                    feedbackText.text = "Use your skills!";
+                    m_gstate.gameState = GameState.GAMESTATE.GS_ENCOUNTER;
                     Instantiate(Monster, new Vector3(10, -2.2f, 0), Quaternion.identity);   //Spawn Monster
                     spawnCount++;
                 }

@@ -7,6 +7,7 @@ public abstract class EntityBase : MonoBehaviour {
     public int m_HP;
     public int m_maxHP;
     public int m_Damage;
+    public int m_DamageRng;         // This value will be the min max 
     public string m_Name;
     public float m_atkSpd;
     public float m_flinchDt;
@@ -40,6 +41,7 @@ public abstract class EntityBase : MonoBehaviour {
 
     protected void TakeDamage(int dmg)
     {
+        // Pop up a Text floating up the damage dealt
         int health = this.GetHealth() - dmg;
         this.SetHealth(health);
     }
@@ -65,8 +67,9 @@ public abstract class EntityBase : MonoBehaviour {
         timer += Time.deltaTime;
         while (timer > atkSpd)
         {
+            int demDamage = Random.Range(this.m_Damage - this.m_DamageRng, this.m_Damage + this.m_DamageRng);
             Debug.Log("Damage Dealt from: " + this.m_Name + " To: " + GetTarget().GetComponent<EntityBase>().m_Name);
-            GetTarget().SendMessage("TakeDamage", this.m_Damage);
+            GetTarget().SendMessage("TakeDamage", demDamage);
             timer = 0;
         }
         //PlayerScrpt temp;
