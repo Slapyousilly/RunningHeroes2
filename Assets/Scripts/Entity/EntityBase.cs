@@ -14,14 +14,22 @@ public abstract class EntityBase : MonoBehaviour {
     public float m_resistance;
     public GameState state;
     private float timer = 0;
+    private float stuntimer = 0;
+    private bool is_stunned = false;
+
+    private float barrierTime = 3.0f;
+    private bool barrierUp = false;
+    private DisplayUI displayui;
 
 	// Use this for initialization
 	void Start () {
-        
+        displayui = GameObject.FindGameObjectWithTag("UIDisplay").GetComponent<DisplayUI>();
+        Debug.Log(displayui.name + "HIIIIIIIIIIIIII");
 	}
 	
 	// Update is called once per frame
 	void Update () {
+
 	}
 
     void OnCollisionEnter2D(Collision2D col)
@@ -42,8 +50,44 @@ public abstract class EntityBase : MonoBehaviour {
     protected void TakeDamage(int dmg)
     {
         // Pop up a Text floating up the damage dealt
-        int health = this.GetHealth() - dmg;
-        this.SetHealth(health);
+        if (BarrierState())
+        {
+            int health = this.GetHealth() - (int)((double)dmg * 0.5);
+            Debug.Log("Damage Reduced!! Received: " + ((double)dmg * 0.5) + " dmg");
+            this.SetHealth(health);
+        }
+        else
+        {
+            int health = this.GetHealth() - dmg;
+            if (CompareTag("Enemy"))
+            {
+                displayui = GameObject.FindGameObjectWithTag("UIDisplay").GetComponent<DisplayUI>();
+                displayui.TextToDisplay(dmg.ToString() + " DMG Dealt!", 3.0f);
+            }
+            this.SetHealth(health);
+        }
+    }
+
+    protected void StunThing()
+    {
+        if (stuntimer <= 0)
+        {
+            Debug.Log("UNSTUN LOL");
+            is_stunned = false;
+        }
+        else
+            stuntimer -= Time.deltaTime;
+    }
+
+    protected void TakeStun(float stunDt)
+    {
+        stuntimer = stunDt;
+        is_stunned = true;
+    }
+
+    protected bool StunState()
+    {
+        return is_stunned;
     }
 
     protected void MoveTowardsTarget()
@@ -68,7 +112,7 @@ public abstract class EntityBase : MonoBehaviour {
         while (timer > atkSpd)
         {
             int demDamage = Random.Range(this.m_Damage - this.m_DamageRng, this.m_Damage + this.m_DamageRng);
-            Debug.Log("Damage Dealt from: " + this.m_Name + " To: " + GetTarget().GetComponent<EntityBase>().m_Name);
+            Debug.Log("Dealt: "+ demDamage +" Damage from: " + this.m_Name + " To: " + GetTarget().GetComponent<EntityBase>().m_Name);
             GetTarget().SendMessage("TakeDamage", demDamage);
             timer = 0;
         }
@@ -84,10 +128,23 @@ public abstract class EntityBase : MonoBehaviour {
         //else
     }
 
+    protected void DropGold(int gold)
+    {
+        displayui = GameObject.FindGameObjectWithTag("UIDisplay").GetComponent<DisplayUI>();
+        displayui.TextToDisplay(gold.ToString() + " Gold Get!", 3.0f);
+        GetTarget().SendMessage("GetGold", gold);
+    }
+
     protected void AttackTarget(int atkDmg, float resist)
     {
         Debug.Log("Spell DMG from: " + this.m_Name + " To: " + GetTarget().GetComponent<EntityBase>().m_Name);
         GetTarget().SendMessage("TakeDamage", atkDmg);
+    }
+
+    protected void StunTarget(float stunDt)
+    {
+        Debug.Log(this.m_Name + " has Stunned " + GetTarget().GetComponent<EntityBase>().m_Name);
+        GetTarget().SendMessage("TakeStun", stunDt);
     }
 
     protected GameObject GetTarget()
@@ -119,6 +176,30 @@ public abstract class EntityBase : MonoBehaviour {
         }
         return temp;
 
+    }
+
+    protected void Barrierthing()
+    {
+        if (barrierTime <= 0.0f)
+            DeactivateBarrier();
+        else
+            barrierTime -= Time.deltaTime;
+    }
+
+    protected void ToggleBarrier()
+    {
+        barrierTime = 3.0f;
+        barrierUp = !barrierUp;
+    }
+
+    protected void DeactivateBarrier()
+    {
+        barrierUp = false;
+    }
+
+    protected bool BarrierState()
+    {
+        return barrierUp;
     }
 
     public abstract void RunFSM(); ///! act upon any change in behaviour   

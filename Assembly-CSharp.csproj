@@ -46,14 +46,20 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\BackgroundScrolling.cs" />
+     <Compile Include="Assets\Scripts\DamageFeedback.cs" />
+     <Compile Include="Assets\Scripts\DayNightScript.cs" />
      <Compile Include="Assets\Scripts\EncounterSystem\EncounterSystem.cs" />
      <Compile Include="Assets\Scripts\EncounterSystem\EncounterUI.cs" />
      <Compile Include="Assets\Scripts\EnemyScript.cs" />
      <Compile Include="Assets\Scripts\Entity\EntityBase.cs" />
      <Compile Include="Assets\Scripts\FadeInOutScript.cs" />
      <Compile Include="Assets\Scripts\GameState.cs" />
+     <Compile Include="Assets\Scripts\Player\PlayerEffects.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerScrpt.cs" />
      <Compile Include="Assets\Scripts\TutorialScript.cs" />
+     <Compile Include="Assets\Scripts\UI\ButtonScript.cs" />
+     <Compile Include="Assets\Scripts\UI\DisplayUI.cs" />
+     <None Include="Assets\Audio\pew\Read Me.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>D:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

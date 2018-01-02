@@ -22,6 +22,16 @@ public class PlayerScrpt : EntityBase {
     public int m_money;
     private float testfloat;
 
+    private EncounterSystem encSys;
+
+    private AudioSource playerAudio;
+    public AudioClip sword1;
+    public AudioClip sword2;
+    public AudioClip sword3;
+    public AudioClip spell1;
+    public AudioClip spell2;
+    public AudioClip spell3;
+
     public enum PLAYER_TYPE
     {
         P_KNIGHT = 0,
@@ -46,10 +56,12 @@ public class PlayerScrpt : EntityBase {
 
 	// Use this for initialization
 	void Start () {
+        playerAudio = GetComponent<AudioSource>();
         rb2D = GetComponent<Rigidbody2D>();
         anim = this.gameObject.GetComponent<Animator>();
         m_HPSlider = m_playerHP.GetComponent<Slider>();
         m_playerMoneyText = m_playerMoney.GetComponent<Text>();
+        encSys = GameObject.FindGameObjectWithTag("EncounterSystem").GetComponent<EncounterSystem>();
         m_isDead = false;
         m_HP = 1000;
         m_maxHP = m_HP;
@@ -58,7 +70,7 @@ public class PlayerScrpt : EntityBase {
         m_atkSpd = 1.1f;
         m_flinchDt = 0.5f;
         m_Name = "Hero";
-        m_Damage = 200;
+        m_Damage = 150;
         m_DamageRng = 50;           // Default 50
         m_resistance = 1.0f;
         m_lifeSpan = 100.0f;
@@ -68,8 +80,10 @@ public class PlayerScrpt : EntityBase {
 	
 	// Update is called once per frame
 	void Update () {
+        Barrierthing();
         m_HPSlider.value = m_HP;
-        m_playerHPText.text = "HP: " + m_HP + "/" + m_maxHP;
+        m_HPSlider.maxValue = m_maxHP;
+        m_playerHPText.text = "HP: "+m_HP+"/"+m_maxHP;
         m_playerMoneyText.text = ""+m_money;
         //Time.timeScale = 0; //can use to pause game or do shit.
         m_lifeSpan -= Time.deltaTime;
@@ -77,9 +91,14 @@ public class PlayerScrpt : EntityBase {
         m_playerLifespan.GetComponent<Image>().fillAmount = (m_lifeSpan / m_maxlifeSpan);
         m_playerLifespanText.text = System.Math.Round(m_lifeSpan, 1) +"%";
 
+        //if (!GameObject.FindGameObjectWithTag("Enemy"))
+        //{
+        //    is_Collided = false;
+        //}
+
         if (state.gameState != GameState.GAMESTATE.GS_ENCOUNTER)
         {
-            Run();
+            //Run();
             is_Collided = false;
             //move back to the original pos
             MoveToPosition(new Vector3(-7.08f, -3.1f, 0));
@@ -129,6 +148,11 @@ public class PlayerScrpt : EntityBase {
         m_playerMoneyText.text = m_money.ToString();
     }
 
+    protected void GetGold(int gold)
+    {
+        m_money += gold;
+    }
+
     public override void RunFSM()
     {
         if (!enemy)
@@ -147,7 +171,11 @@ public class PlayerScrpt : EntityBase {
                 testfloat += Time.deltaTime;
                 if (testfloat >= m_atkSpd)
                 {
+                    Debug.Log("I am still attacking");
                     Attack();
+                    if (playerAudio.clip != sword1)
+                        playerAudio.clip = sword1;
+                    playerAudio.Play();
                     testfloat = 0.0f;
                 }
                 else
@@ -215,13 +243,29 @@ public class PlayerScrpt : EntityBase {
     }
     public void Skill1()
     {
+        if (playerAudio.clip != sword1)
+        playerAudio.clip = spell1;
+        playerAudio.Play();
         anim.SetTrigger("SKILL1");
         int demDamage = Random.Range(m_Damage - m_DamageRng, m_Damage + m_DamageRng);
         AttackTarget(demDamage * 3, 0.2f);
     }
-    void Skill2()
+    public void Skill2()
     {
+        //playerAudio.clip = spell2;
+        playerAudio.PlayOneShot(spell2);
         anim.SetTrigger("SKILL2");
+        StunTarget(3.0f);
+    }   
+    public void Skill3()
+    {
+        playerAudio.clip = spell3;
+        playerAudio.Play();
+        // Put Defense Time
+        ToggleBarrier();
+        //m_HP += (int)((float)m_maxHP * 0.2f);
+        //if (m_HP > m_maxHP)
+        //    m_HP = m_maxHP;
     }
     void Attack()
     {

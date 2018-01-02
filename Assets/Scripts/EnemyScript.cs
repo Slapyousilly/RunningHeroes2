@@ -11,9 +11,15 @@ public class EnemyScript : EntityBase {
     private Rigidbody2D rb2D;
 
     private PlayerScrpt player;
+    public int m_goldworth;
 
+    private AudioSource enemyAudio;
+    public AudioClip orc;
+    public AudioClip die;
+    private float testfloat;
 	// Use this for initialization
 	void Start () {
+        enemyAudio = GetComponent<AudioSource>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerScrpt>();
         rb2D = GetComponent<Rigidbody2D>();
         anim = this.gameObject.GetComponent<Animator>();
@@ -26,12 +32,14 @@ public class EnemyScript : EntityBase {
 
         state = GameObject.FindGameObjectWithTag("GameStateSystem").GetComponent<GameState>();
         m_isDead = false;
-        m_HP = 1000;
+        m_HP = 600;
         m_maxHP = m_HP;
         m_atkSpd = 1.1f;
         m_flinchDt = 0.5f;
-        m_Name = "pew";
-        m_Damage = 200;
+        m_Name = "Orc";
+        m_Damage = 100;
+        m_goldworth = 100;
+        m_DamageRng = 30;
         m_resistance = 1.0f;
         is_Collided = false;
 	}
@@ -45,6 +53,7 @@ public class EnemyScript : EntityBase {
         //m_HPSlider.fillAmount = 0.5f;
         m_HPSlider.fillAmount = ((float)m_HP / (float)m_maxHP);
         RunFSM();
+        StunThing();
 	}
 
     public override void RunFSM()
@@ -57,14 +66,33 @@ public class EnemyScript : EntityBase {
                 MoveTowardsTarget();
             else
             {
-                Attack();
-                AttackTarget(m_atkSpd);
+                if (!StunState())
+                {
+                    testfloat += Time.deltaTime;
+                    if (testfloat >= m_atkSpd)
+                    {
+                        Debug.Log("I am still attacking");
+                        Attack();
+                        if (enemyAudio.clip != orc)
+                            enemyAudio.clip = orc;
+                        enemyAudio.Play();
+                        testfloat = 0.0f;
+                    }
+                    else
+                        Idle();
+                    AttackTarget(m_atkSpd);
+                }
+                else
+                    Idle();
             }
         }
         if (m_HP <= 0)
         {
             Die();
+            enemyAudio.clip = die;
+            enemyAudio.Play();
             Destroy(this.gameObject);
+            DropGold(m_goldworth);
         }
     }
 

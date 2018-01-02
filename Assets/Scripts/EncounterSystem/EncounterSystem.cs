@@ -26,6 +26,7 @@ public class EncounterSystem : MonoBehaviour {
     public GameObject Monster;
 
     public int spawnCount;
+    private int totalSpawn;
 
     private EncounterUI UIUIThing;
     private bool bgCreate;
@@ -35,6 +36,7 @@ public class EncounterSystem : MonoBehaviour {
     public int repairCost = 75;                  // Armor Repair Cost
     public int AupgradeCost = 200;               // Armor Upgrade Cost
     public int WupgradeCost = 200;               // Weapon Upgrade Cost
+    public int baseGoldDrop = 30;               // 100 + this * multiplier
 
     private bool displayIt;
 
@@ -63,11 +65,12 @@ public class EncounterSystem : MonoBehaviour {
         m_Player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerScrpt>();  // Finding player and getting details from player directly
         UIUIThing = GameObject.FindGameObjectWithTag("UIEncounter").GetComponent<EncounterUI>();
         //background = GameObject.FindGameObjectWithTag("Background");
+        _encounters.Add(ENCOUNTERS.E_MONSTERS);
         _encounters.Add(ENCOUNTERS.E_WEAPONUP); //= new ENCOUNTERS[5] { ENCOUNTERS.E_WEAPONUP, ENCOUNTERS.E_MONSTERS, ENCOUNTERS.E_MONSTERS, ENCOUNTERS.E_SHRINE, ENCOUNTERS.E_ARMORUP };
         _encounters.Add(ENCOUNTERS.E_SHRINE);
         _encounters.Add(ENCOUNTERS.E_ARMORUP);
         _encounters.Add(ENCOUNTERS.E_REPAIR);
-        _encounters.Add(ENCOUNTERS.E_MONSTERS);
+        
 
         //UIUIThing.InitialRun();
     }
@@ -164,8 +167,7 @@ public class EncounterSystem : MonoBehaviour {
                 {
                     feedbackText.text = "Use your skills!";
                     m_gstate.gameState = GameState.GAMESTATE.GS_ENCOUNTER;
-                    Instantiate(Monster, new Vector3(10, -2.2f, 0), Quaternion.identity);   //Spawn Monster
-                    spawnCount++;
+                    createMonster();
                 }
                 break;
             case ENCOUNTERS.E_BOSS:
@@ -175,13 +177,23 @@ public class EncounterSystem : MonoBehaviour {
         }
     }
 
+    void createMonster()
+    {
+        Instantiate(Monster, new Vector3(10, -2.2f, 0), Quaternion.identity);
+        Monster.GetComponent<EnemyScript>().m_goldworth += (int)((double)baseGoldDrop * (0.1 * (double)totalSpawn));
+        Monster.GetComponent<EnemyScript>().m_HP = 600 + (20 *totalSpawn);
+        Monster.GetComponent<EnemyScript>().m_HP = Monster.GetComponent<EnemyScript>().m_maxHP;
+        spawnCount++;
+        totalSpawn++;
+    }
+
     void createBackground(int theNum)
     {
         if (bgCreate)
         {
              BGBG = Instantiate(UIBackground[theNum]) as GameObject;
              //BGBG.transform.SetParent(background.transform);
-             BGBG.transform.localPosition = new Vector3(4,-5, 0);
+             BGBG.transform.localPosition = new Vector3(4, -4, 0);
              bgCreate = false;
             //background;
         }

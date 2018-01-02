@@ -24,6 +24,7 @@ public class GameState : MonoBehaviour {
     private EncounterSystem m_enc;
     public float delay = 0;
 
+
 	// Use this for initialization
 	void Start () {
         // for now put done
