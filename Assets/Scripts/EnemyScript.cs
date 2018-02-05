@@ -32,15 +32,15 @@ public class EnemyScript : EntityBase {
 
         state = GameObject.FindGameObjectWithTag("GameStateSystem").GetComponent<GameState>();
         m_isDead = false;
-        m_HP = 600;
-        m_maxHP = m_HP;
-        m_atkSpd = 1.1f;
-        m_flinchDt = 0.5f;
-        m_Name = "Orc";
-        m_Damage = 100;
-        m_goldworth = 100;
-        m_DamageRng = 30;
-        m_resistance = 1.0f;
+        //m_HP = 600;
+        //m_maxHP = m_HP;
+        //m_atkSpd = 1.1f;
+        //m_flinchDt = 0.5f;
+        //m_Name = "Orc";
+        //m_Damage = 100;
+        //m_goldworth = 100;
+        //m_DamageRng = 30;
+        //m_resistance = 1.0f;
         is_Collided = false;
 	}
     //void Start (string m_Name, int m_HP, float m_atkSpd, float m_flinctDT, int m_Damage, float m_resistance)

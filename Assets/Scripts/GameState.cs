@@ -3,6 +3,8 @@ using System.Collections;
 
 public class GameState : MonoBehaviour {
 
+    public GameObject gameManager;
+
     public enum GAMESTATE
     {
         GS_PLAY = 0,
@@ -24,6 +26,11 @@ public class GameState : MonoBehaviour {
     private EncounterSystem m_enc;
     public float delay = 0;
 
+    void Awake()
+    {
+        if (GameManager.instance == null)
+            Instantiate(gameManager);
+    }
 
 	// Use this for initialization
 	void Start () {

@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class ButtonScript : MonoBehaviour {
 
@@ -40,5 +41,14 @@ public class ButtonScript : MonoBehaviour {
             buttonCD.fillAmount = 1.0f;
         m_timeCD = cooldown;
         origDT = cooldown;
+    }
+
+    public void ResetGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+    public void BackToMenu()
+    {
+        SceneManager.LoadScene("MenuScene");
     }
 }

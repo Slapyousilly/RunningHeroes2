@@ -67,6 +67,7 @@ public class EncounterUI : MonoBehaviour {
                     UIAdd = UIStuff[4];
                     break;
                 case EncounterSystem.ENCOUNTERS.E_BOSS:
+                    UIAdd = UIStuff[4];
                     break;
             }
 
@@ -88,7 +89,6 @@ public class EncounterUI : MonoBehaviour {
     {
 
         //EncounterSystem.ENCOUNTERS pew = hehe.NextEncounterAdd();
-        Debug.Log("This UI is: " + pew);
         switch (pew)
         {
             case EncounterSystem.ENCOUNTERS.E_ARMORUP:
@@ -122,6 +122,7 @@ public class EncounterUI : MonoBehaviour {
                 //UIUI = Instantiate(UIAdd) as GameObject; //, new Vector3(0, 0, 0), Quaternion.identity
                 break;
             case EncounterSystem.ENCOUNTERS.E_BOSS:
+                AddUI(UIStuff[4]);
                 break;
         }
     }
@@ -129,14 +130,12 @@ public class EncounterUI : MonoBehaviour {
     void AddUI(GameObject demUI)
     {
         GameObject uipewpewadd = demUI;
-        Debug.Log(demUI.name);
         GameObject UIUI = Instantiate(uipewpewadd) as GameObject; //, new Vector3(0, 0, 0), Quaternion.identity
         UIUI.transform.SetParent(this.gameObject.transform);
         UIUI.transform.localPosition = new Vector3(130 + 50 * 5, 165, 0);
         UIUI.transform.localScale = new Vector3(0.7f, 0.7f, 0);
         UIUI.SetActive(true);
         UIShow.Add(UIUI);
-        Debug.Log(UIUI.name);
     }
 
     public void RemoveUIEncounter()

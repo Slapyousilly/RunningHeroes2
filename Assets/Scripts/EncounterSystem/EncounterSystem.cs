@@ -18,19 +18,29 @@ public class EncounterSystem : MonoBehaviour {
     private float m_nextbufferDt;     
 
     public Text feedbackText;               // Text to ask player to tap
+    public GameObject feedbackImg;          // Img to ask player to tap
     public bool doEncounterCheck;
 
     public GameObject GameStateThing;
     private GameState m_gstate;
 
     public GameObject Monster;
+    public GameObject Boss;
+
+    public GameObject theButton;
+    public Button purchaseButton;
+
+    private DayNightScript dayNightSystem;
 
     public int spawnCount;
     private int totalSpawn;
+    public bool testtyy;
+    public bool uhohuhohlowhp;
 
     private EncounterUI UIUIThing;
     private bool bgCreate;
     private GameObject BGBG;
+    private AudioSource theBGM;
 
     public int shrineCost = 50;                  // Shrine Cost
     public int repairCost = 75;                  // Armor Repair Cost
@@ -39,6 +49,18 @@ public class EncounterSystem : MonoBehaviour {
     public int baseGoldDrop = 30;               // 100 + this * multiplier
 
     private bool displayIt;
+    private bool isBossSpawned;
+    private bool spawnDaBoss;
+    private bool initRunDone;
+
+    private bool buttonClicked;
+
+    private int m_ArmUp;
+    private int m_ArmRe;
+    private int m_WeaUp;
+    private int m_Shrine;
+    private int m_MonEn;
+    private int m_BossEn;
 
     public enum ENCOUNTERS                  // Encounters Players will get
     {
@@ -50,6 +72,7 @@ public class EncounterSystem : MonoBehaviour {
         E_BOSS,
         E_END,
     }
+
     //public ENCOUNTERS[] _encounters; //
     public List<ENCOUNTERS> _encounters = new List<ENCOUNTERS>(); // List of Encounters
 
@@ -57,26 +80,48 @@ public class EncounterSystem : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        testtyy = false;
         displayIt = true;
         bgCreate = true;
         spawnCount = 0;
         doEncounterCheck = true;
+        isBossSpawned = false;
+        initRunDone = false;
+        buttonClicked = false;
+        spawnDaBoss = false;
         m_gstate = GameStateThing.GetComponent<GameState>();
         m_Player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerScrpt>();  // Finding player and getting details from player directly
         UIUIThing = GameObject.FindGameObjectWithTag("UIEncounter").GetComponent<EncounterUI>();
+        dayNightSystem = GameObject.FindGameObjectWithTag("DayNight").GetComponent<DayNightScript>();
+        purchaseButton = theButton.GetComponent<Button>();
+        theBGM = GetComponent<AudioSource>();
+        m_ArmUp = m_ArmRe = m_WeaUp = m_Shrine = m_MonEn = m_BossEn = 0;
+        totalSpawn = 2;
         //background = GameObject.FindGameObjectWithTag("Background");
-        _encounters.Add(ENCOUNTERS.E_MONSTERS);
-        _encounters.Add(ENCOUNTERS.E_WEAPONUP); //= new ENCOUNTERS[5] { ENCOUNTERS.E_WEAPONUP, ENCOUNTERS.E_MONSTERS, ENCOUNTERS.E_MONSTERS, ENCOUNTERS.E_SHRINE, ENCOUNTERS.E_ARMORUP };
-        _encounters.Add(ENCOUNTERS.E_SHRINE);
-        _encounters.Add(ENCOUNTERS.E_ARMORUP);
-        _encounters.Add(ENCOUNTERS.E_REPAIR);
-        
+        //_encounters.Add(ENCOUNTERS.E_BOSS);
+        //_encounters.Add(ENCOUNTERS.E_WEAPONUP); //= new ENCOUNTERS[5] { ENCOUNTERS.E_WEAPONUP, ENCOUNTERS.E_MONSTERS, ENCOUNTERS.E_MONSTERS, ENCOUNTERS.E_SHRINE, ENCOUNTERS.E_ARMORUP };
+        //_encounters.Add(ENCOUNTERS.E_SHRINE);
+        //_encounters.Add(ENCOUNTERS.E_ARMORUP);
+        //_encounters.Add(ENCOUNTERS.E_REPAIR);
+        theBGM.loop = true;
+        theBGM.Play();
+        if (!initRunDone)
+            InitialRun();
 
+        purchaseButton.onClick.AddListener(TaskOnClick);
         //UIUIThing.InitialRun();
+    }
+
+    void TaskOnClick()
+    {
+        buttonClicked = true;
     }
 	
 	// Update is called once per frame
 	void Update () {
+        if (m_Player.m_lifeSpan <= 30.0f)
+            uhohuhohlowhp = true;
+        bossSpawnCheck();
         if (doEncounterCheck)
         {
             //if (CurrEncounterCheck() != ENCOUNTERS.E_MONSTERS || CurrEncounterCheck() != ENCOUNTERS.E_BOSS)
@@ -84,6 +129,7 @@ public class EncounterSystem : MonoBehaviour {
 
             if (m_nextEncounterDt <= 0.0f)
             {
+                purchaseButton.interactable = true;
                 // do the Touch to be like "hey u got this encounter"
                 // then after pass by let the encounter goneee
                 if (m_bufferdt > 0.0f)
@@ -101,6 +147,7 @@ public class EncounterSystem : MonoBehaviour {
 
     void showRespectiveText()
     {
+        feedbackImg.SetActive(true);
         switch (CurrEncounterCheck())
         {
             case ENCOUNTERS.E_ARMORUP:
@@ -108,7 +155,7 @@ public class EncounterSystem : MonoBehaviour {
                 createBackground(1);
                 if (displayIt)
                     feedbackText.text = "Tap to Upgrade Armor Cost: " + AupgradeCost;
-                if (Input.GetMouseButtonDown(0) && m_Player.m_money >= AupgradeCost && displayIt)
+                if (buttonClicked && m_Player.m_money >= AupgradeCost && displayIt)
                 {
                     displayIt = false;
                     m_Player.m_money -= AupgradeCost;
@@ -124,7 +171,7 @@ public class EncounterSystem : MonoBehaviour {
                 createBackground(2);
                 if (displayIt)
                     feedbackText.text = "Tap to Upgrade Weapon Cost: " + WupgradeCost;
-                if (Input.GetMouseButtonDown(0) && m_Player.m_money >= WupgradeCost && displayIt)
+                if (buttonClicked && m_Player.m_money >= WupgradeCost && displayIt)
                 {
                     displayIt = false;
                     m_Player.m_money -= WupgradeCost;
@@ -139,7 +186,7 @@ public class EncounterSystem : MonoBehaviour {
                 createBackground(0);
                 if (displayIt)
                     feedbackText.text = "Tap to Repair Armor Cost: " + repairCost;
-                if (Input.GetMouseButtonDown(0) && m_Player.m_money >= repairCost && displayIt)
+                if (buttonClicked && m_Player.m_money >= repairCost && displayIt)
                 {
                     displayIt = false;
                     m_Player.m_money -= repairCost;
@@ -153,7 +200,7 @@ public class EncounterSystem : MonoBehaviour {
                 createBackground(3);
                 if (displayIt)
                     feedbackText.text = "Tap to Increase Lifespan Cost: " + shrineCost;
-                if (Input.GetMouseButtonDown(0) && m_Player.m_money >= shrineCost && displayIt)
+                if (buttonClicked && m_Player.m_money >= shrineCost && displayIt)
                 {
                     displayIt = false;
                     m_Player.m_money -= shrineCost;
@@ -168,23 +215,41 @@ public class EncounterSystem : MonoBehaviour {
                     feedbackText.text = "Use your skills!";
                     m_gstate.gameState = GameState.GAMESTATE.GS_ENCOUNTER;
                     createMonster();
+                    testtyy = true;
                 }
                 break;
             case ENCOUNTERS.E_BOSS:
-                feedbackText.text = "Use your skills!";
-                m_gstate.gameState = GameState.GAMESTATE.GS_ENCOUNTER;
+                if (spawnCount < 1)
+                {
+                    feedbackText.text = "Use your skills!"; 
+                    m_gstate.gameState = GameState.GAMESTATE.GS_ENCOUNTER;
+                    createBoss();
+                }
                 break;
         }
     }
 
     void createMonster()
     {
-        Instantiate(Monster, new Vector3(10, -2.2f, 0), Quaternion.identity);
-        Monster.GetComponent<EnemyScript>().m_goldworth += (int)((double)baseGoldDrop * (0.1 * (double)totalSpawn));
-        Monster.GetComponent<EnemyScript>().m_HP = 600 + (20 *totalSpawn);
-        Monster.GetComponent<EnemyScript>().m_HP = Monster.GetComponent<EnemyScript>().m_maxHP;
+        GameObject go = Instantiate(Monster, new Vector3(10, -2.2f, 0), Quaternion.identity) as GameObject;
+        EnemyScript scripty = go.GetComponent<EnemyScript>();
+        go.GetComponent<EnemyScript>().m_goldworth += (int)((double)baseGoldDrop * (0.1 * (double)totalSpawn));
+        go.GetComponent<EnemyScript>().SetMaxHealth(600 + (20 * totalSpawn));
+        go.GetComponent<EnemyScript>().SetHealth(600 + (20 * totalSpawn));
+
+        Debug.Log(go.GetComponent<EnemyScript>().m_HP);
+        //Debug.Log((int)((double)baseGoldDrop * (0.1 * (double)totalSpawn)));
         spawnCount++;
         totalSpawn++;
+    }
+
+    void createBoss()
+    {
+        GameObject go = Instantiate(Boss, new Vector3(10, -2.2f, 0), Quaternion.identity) as GameObject;
+        go.GetComponent<EnemyScript>().m_goldworth += 1400;
+        go.GetComponent<EnemyScript>().SetMaxHealth(3000 + (10 * totalSpawn));
+        go.GetComponent<EnemyScript>().SetHealth(3000 + (10 * totalSpawn));
+        spawnCount++;
     }
 
     void createBackground(int theNum)
@@ -205,32 +270,37 @@ public class EncounterSystem : MonoBehaviour {
         _encounters.Add(enc);
     }
 
-    void EncounterCheck()
-    {
-        _encounters.Contains(ENCOUNTERS.E_SHRINE); // Returns true if it does contain inside List.
-        //_encounters[0];
-        if (_encounters.Count < 5)
-        {
-            // Add new encounter logic
-            if (m_Player.m_HP <= m_Player.m_maxHP * 0.75f)
-            {
-                _encounters.Add(ENCOUNTERS.E_REPAIR);
-            }
-            if (m_Player.m_lifeSpan < 30.0f && !_encounters.Contains(ENCOUNTERS.E_SHRINE))
-            {
-                _encounters.Add(ENCOUNTERS.E_SHRINE);
-            }
-            // Determine next encounter
-        }
-    }
+    //void EncounterCheck()
+    //{
+    //    _encounters.Contains(ENCOUNTERS.E_SHRINE); // Returns true if it does contain inside List.
+    //    //_encounters[0];
+    //    if (_encounters.Count < 5)
+    //    {
+    //        // Add new encounter logic
+    //        if (m_Player.m_HP <= m_Player.m_maxHP * 0.75f)
+    //        {
+    //            _encounters.Add(ENCOUNTERS.E_REPAIR);
+    //        }
+    //        if (m_Player.m_lifeSpan < 30.0f && !_encounters.Contains(ENCOUNTERS.E_SHRINE))
+    //        {
+    //            _encounters.Add(ENCOUNTERS.E_SHRINE);
+    //        }
+    //        // Determine next encounter
+    //    }
+    //}
 
     void EncounterReset()
     {
+        feedbackImg.SetActive(false);
         Destroy(BGBG);
         bgCreate = displayIt = true;
+        buttonClicked = false;
+        purchaseButton.interactable = false; 
         spawnCount = 0;
+        subtractAmount(_encounters[0]);
         _encounters.RemoveAt(0);
         ENCOUNTERS nextToAdd = NextEncounterAdd();
+        addAmount(nextToAdd);
         Debug.Log(nextToAdd);
         _encounters.Add(nextToAdd);
         UIUIThing.AddUINextEncounter(nextToAdd);
@@ -238,6 +308,14 @@ public class EncounterSystem : MonoBehaviour {
         feedbackText.text = "";
         m_nextEncounterDt = 2.0f;
         m_bufferdt = 4.5f;
+    }
+
+    void bossSpawnCheck()
+    {
+        if (dayNightSystem.getDaysPassed() % 10 == 0)
+        {
+            spawnDaBoss = true;
+        }
     }
 
     public ENCOUNTERS NextEncounterAdd()
@@ -249,10 +327,18 @@ public class EncounterSystem : MonoBehaviour {
             // Add new encounter logic
             // Determine next encounter
 
-            if (m_Player.m_lifeSpan < 40.0f && !_encounters.Contains(ENCOUNTERS.E_SHRINE))
-                return ENCOUNTERS.E_SHRINE;
+            if (spawnDaBoss && !isBossSpawned)
+            {
+                isBossSpawned = true;
+                return ENCOUNTERS.E_BOSS;
+            }
 
-            float randfVal = Random.RandomRange(0.0f, 1.2f);
+            if (m_Player.m_lifeSpan < 50.0f && !_encounters.Contains(ENCOUNTERS.E_SHRINE))
+            {
+                return ENCOUNTERS.E_SHRINE;
+            }
+
+            float randfVal = Random.RandomRange(0.0f, 1.32f);
             Debug.Log(randfVal);
 
             if (randfVal <= 0.2f && !_encounters.Contains(ENCOUNTERS.E_SHRINE))
@@ -261,35 +347,121 @@ public class EncounterSystem : MonoBehaviour {
                 while (randfVal <= 0.2f)
                     randfVal = Random.RandomRange(0.0f, 1.0f);
 
-            if (randfVal > 0.2f && randfVal <= 0.4f)
+            if (randfVal > 0.2f && randfVal <= 0.4f && m_MonEn < 4)
                 return ENCOUNTERS.E_MONSTERS;
 
-            if (randfVal > 0.4f && randfVal <= 0.6f && !_encounters.Contains(ENCOUNTERS.E_WEAPONUP))
+            if (randfVal > 0.4f && randfVal <= 0.6f && m_WeaUp < 2/*&& !_encounters.Contains(ENCOUNTERS.E_WEAPONUP)*/)
                 return ENCOUNTERS.E_WEAPONUP;
             else
                 while (randfVal > 0.4f && randfVal <= 0.6f)
                     randfVal = Random.RandomRange(0.0f, 1.0f);
 
-            if (randfVal > 0.6f && randfVal <= 0.8f)
+            if (randfVal > 0.6f && randfVal <= 0.8f && m_ArmUp < 3)
                 return ENCOUNTERS.E_ARMORUP;
             else
                 while (randfVal > 0.6f && randfVal <= 0.8f)
                     randfVal = Random.RandomRange(0.0f, 1.0f);
 
-            if (randfVal > 0.8f && randfVal <= 1.0f && m_Player.m_HP <= m_Player.m_maxHP * 0.75f)
+            if (randfVal > 0.8f && randfVal <= 1.0f && m_Player.m_HP <= m_Player.m_maxHP * 0.8f && m_ArmRe < 2)
                 return ENCOUNTERS.E_REPAIR;
             else
                 while (randfVal > 0.8f && randfVal <= 1.0f)
                     randfVal = Random.RandomRange(0.0f, 1.0f);
 
-
             //if (m_Player.m_HP <= m_Player.m_maxHP * 0.75f)
             //    return ENCOUNTERS.E_REPAIR;
             //else
             //    return ENCOUNTERS.E_MONSTERS;
+            if (randfVal >1.0f && randfVal <= 1.3f)
+            {
+                ENCOUNTERS randEnc;
+                randEnc = (ENCOUNTERS)Random.Range(0, 4);
+                return randEnc;
+            }
+
         }
 
         return ENCOUNTERS.E_MONSTERS;
+    }
+
+    public void addAmount(ENCOUNTERS wow)
+    {
+        for (int i = 0; i < 5; i++)
+        {
+            switch (wow)
+            {
+                case ENCOUNTERS.E_ARMORUP:
+                    m_ArmUp++;
+                    break;
+                case ENCOUNTERS.E_WEAPONUP:
+                    m_WeaUp++;
+                    break;
+                case ENCOUNTERS.E_REPAIR:
+                    m_ArmRe++;
+                    break;
+                case ENCOUNTERS.E_SHRINE:
+                    m_Shrine++;
+                    break;
+                case ENCOUNTERS.E_MONSTERS:
+                    m_MonEn++;
+                    break;
+                case ENCOUNTERS.E_BOSS:
+                    m_BossEn++;
+                    break;
+            }
+        }
+    }
+
+    public void subtractAmount(ENCOUNTERS wow)
+    {
+        for (int i = 0; i < 5; i++)
+        {
+            switch (wow)
+            {
+                case ENCOUNTERS.E_ARMORUP:
+                    m_ArmUp--;
+                    break;
+                case ENCOUNTERS.E_WEAPONUP:
+                    m_WeaUp--;
+                    break;
+                case ENCOUNTERS.E_REPAIR:
+                    m_ArmRe--;
+                    break;
+                case ENCOUNTERS.E_SHRINE:
+                    m_Shrine--;
+                    break;
+                case ENCOUNTERS.E_MONSTERS:
+                    m_MonEn--;
+                    break;
+                case ENCOUNTERS.E_BOSS:
+                    m_BossEn--;
+                    break;
+            }
+        }
+    }
+
+    public void InitialRun()
+    {
+        for (int i = 0; i < 5; i++)
+        {
+            ENCOUNTERS randEnc;
+            int theRandNum = Random.Range(0, 4);
+
+            randEnc = (ENCOUNTERS)theRandNum;
+            if (i == 0)
+            {
+                addAmount(ENCOUNTERS.E_MONSTERS);
+                _encounters.Add(ENCOUNTERS.E_MONSTERS);
+            }
+            else
+            {
+                addAmount(randEnc);
+                _encounters.Add(randEnc);
+            }
+        }
+
+        initRunDone = true;
+
     }
 
     public ENCOUNTERS CurrEncounterCheck()

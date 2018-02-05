@@ -11,9 +11,14 @@ public class DayNightScript : MonoBehaviour {
     private Image picAlpha;
     private Color c;
     private bool toggleTransition = false;
-    private int dayPassed;
+    private int dayPassed;                  // Starting Default to 1
+    public int scoreEarned;
+
+    public GameObject ScoreThing;
+    private Text ScoreText;
 	// Use this for initialization
 	void Start () {
+        ScoreText = ScoreThing.GetComponent<Text>();
         picAlpha = DayNightpic.GetComponent<Image>();
         c = picAlpha.color;
         dayPassed = 1;
@@ -29,20 +34,28 @@ public class DayNightScript : MonoBehaviour {
 
             TriggerTransition();
         }
+        if (Time.timeScale == 1)
+            CalculatePoints();
 	}
+
+    void CalculatePoints()
+    {
+        scoreEarned += 5;
+        ScoreText.text = scoreEarned.ToString();
+    }
 
     void DayNightTransition()
     {
         if (toggleTransition)
         {
-            Debug.Log("IT'S NIGHT");
+            //Debug.Log("IT'S NIGHT");
             if (c.a <= 0.55f)
                 c.a += 0.001f;
             picAlpha.color = c;
         }
         else
         {
-            Debug.Log("IT'S MORNING");
+            //Debug.Log("IT'S MORNING");
             if (c.a > 0)
                 c.a -= 0.001f;
             picAlpha.color = c;
@@ -54,6 +67,11 @@ public class DayNightScript : MonoBehaviour {
         if (!toggleTransition)
             dayPassed += 1;
         DayText.text = dayPassed.ToString();
+    }
+
+    public int getDaysPassed()
+    {
+        return dayPassed;
     }
 
     //void FixedUpdate()

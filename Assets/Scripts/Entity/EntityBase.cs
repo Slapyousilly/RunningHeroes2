@@ -186,9 +186,9 @@ public abstract class EntityBase : MonoBehaviour {
             barrierTime -= Time.deltaTime;
     }
 
-    protected void ToggleBarrier()
+    protected void ToggleBarrier(float dur)
     {
-        barrierTime = 3.0f;
+        barrierTime = dur;
         barrierUp = !barrierUp;
     }
 

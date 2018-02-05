@@ -32,6 +32,10 @@ public class PlayerScrpt : EntityBase {
     public AudioClip spell2;
     public AudioClip spell3;
 
+    private GameManager skillsInstance;
+
+    private Color c;
+
     public enum PLAYER_TYPE
     {
         P_KNIGHT = 0,
@@ -62,6 +66,7 @@ public class PlayerScrpt : EntityBase {
         m_HPSlider = m_playerHP.GetComponent<Slider>();
         m_playerMoneyText = m_playerMoney.GetComponent<Text>();
         encSys = GameObject.FindGameObjectWithTag("EncounterSystem").GetComponent<EncounterSystem>();
+        skillsInstance = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
         m_isDead = false;
         m_HP = 1000;
         m_maxHP = m_HP;
@@ -76,6 +81,7 @@ public class PlayerScrpt : EntityBase {
         m_lifeSpan = 100.0f;
         m_maxlifeSpan = m_lifeSpan;
         m_money = 500;
+        c = GetComponent<SpriteRenderer>().color;
 	}
 	
 	// Update is called once per frame
@@ -90,6 +96,8 @@ public class PlayerScrpt : EntityBase {
 
         m_playerLifespan.GetComponent<Image>().fillAmount = (m_lifeSpan / m_maxlifeSpan);
         m_playerLifespanText.text = System.Math.Round(m_lifeSpan, 1) +"%";
+
+        playerFading();
 
         //if (!GameObject.FindGameObjectWithTag("Enemy"))
         //{
@@ -141,6 +149,12 @@ public class PlayerScrpt : EntityBase {
         }
         //RunFSM(GetComponent<GameState>().gameState);
         //anim.SetTrigger("RUN");
+    }
+
+    public void playerFading()
+    {
+        c.a = (m_lifeSpan / m_maxlifeSpan) * 2.0f;
+        GetComponent<SpriteRenderer>().color = c;
     }
 
     public void updateMoney()
@@ -243,29 +257,41 @@ public class PlayerScrpt : EntityBase {
     }
     public void Skill1()
     {
-        if (playerAudio.clip != sword1)
-        playerAudio.clip = spell1;
-        playerAudio.Play();
-        anim.SetTrigger("SKILL1");
-        int demDamage = Random.Range(m_Damage - m_DamageRng, m_Damage + m_DamageRng);
-        AttackTarget(demDamage * 3, 0.2f);
+        if (is_Collided)
+        {
+            if (playerAudio.clip != sword1)
+                playerAudio.clip = spell1;
+            playerAudio.Play();
+            anim.SetTrigger("SKILL1");
+            int demDamage = Random.Range(m_Damage - m_DamageRng, m_Damage + m_DamageRng);
+            AttackTarget((int)((float)demDamage * skillsInstance.strikeMultiplier), 0.2f);
+        }
+        else
+            StunTarget(0.1f);
     }
     public void Skill2()
     {
-        //playerAudio.clip = spell2;
-        playerAudio.PlayOneShot(spell2);
-        anim.SetTrigger("SKILL2");
-        StunTarget(3.0f);
+        if (is_Collided)
+        {
+            //playerAudio.clip = spell2;
+            playerAudio.PlayOneShot(spell2);
+            anim.SetTrigger("SKILL2");
+            StunTarget(skillsInstance.stunDur);
+        }
+        else
+            StunTarget(0.1f);
     }   
     public void Skill3()
     {
-        playerAudio.clip = spell3;
-        playerAudio.Play();
-        // Put Defense Time
-        ToggleBarrier();
-        //m_HP += (int)((float)m_maxHP * 0.2f);
-        //if (m_HP > m_maxHP)
-        //    m_HP = m_maxHP;
+        if (is_Collided)
+        {
+            playerAudio.clip = spell3;
+            playerAudio.Play();
+            // Put Defense Time
+            ToggleBarrier(skillsInstance.dmgRedDur);
+        }
+        else
+            StunTarget(0.1f);
     }
     void Attack()
     {

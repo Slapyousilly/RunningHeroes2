@@ -18,8 +18,8 @@ public class DisplayUI : MonoBehaviour {
         // = this.gameObject;
         display = textdisplay.GetComponent<Text>();
         displayDt = 0.0f;
-        oldXPos = -Screen.width * 0.25f;//gameObject.transform.position.x;
-        newXPos = Screen.width * 0.25f;//-465.0f;
+        oldXPos = -Screen.width * 0.3f;//gameObject.transform.position.x;
+        newXPos = Screen.width * 0.3f;//-465.0f;
         isShown = false;
         isHidden = true;
 	}

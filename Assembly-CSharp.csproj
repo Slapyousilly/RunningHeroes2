@@ -54,11 +54,16 @@
      <Compile Include="Assets\Scripts\Entity\EntityBase.cs" />
      <Compile Include="Assets\Scripts\FadeInOutScript.cs" />
      <Compile Include="Assets\Scripts\GameState.cs" />
+     <Compile Include="Assets\Scripts\Menu\GameManager.cs" />
+     <Compile Include="Assets\Scripts\Menu\MenuScript.cs" />
+     <Compile Include="Assets\Scripts\Menu\SkillDisplay.cs" />
+     <Compile Include="Assets\Scripts\Menu\UpgradeScript.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerEffects.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerScrpt.cs" />
      <Compile Include="Assets\Scripts\TutorialScript.cs" />
      <Compile Include="Assets\Scripts\UI\ButtonScript.cs" />
      <Compile Include="Assets\Scripts\UI\DisplayUI.cs" />
+     <Compile Include="Assets\Scripts\UI\ScoreScript.cs" />
      <None Include="Assets\Audio\pew\Read Me.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>D:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
