@@ -20,6 +20,7 @@ public abstract class EntityBase : MonoBehaviour {
     private float barrierTime = 3.0f;
     private bool barrierUp = false;
     private DisplayUI displayui;
+    public GameObject barrier;
 
 	// Use this for initialization
 	void Start () {
@@ -188,12 +189,14 @@ public abstract class EntityBase : MonoBehaviour {
 
     protected void ToggleBarrier(float dur)
     {
+        barrier.SetActive(true);
         barrierTime = dur;
         barrierUp = !barrierUp;
     }
 
     protected void DeactivateBarrier()
     {
+        barrier.SetActive(false);
         barrierUp = false;
     }
 
@@ -207,6 +210,10 @@ public abstract class EntityBase : MonoBehaviour {
     public float GetAttackSpeed()
     {
         return m_atkSpd;
+    }
+    public void SetAttackDamage(int dmg)
+    {
+        m_Damage = dmg;
     }
     public int GetAttackDamage()
     {

@@ -38,6 +38,7 @@ public class MenuScript : MonoBehaviour {
     }
     public void QuitGame()
     {
+        GameManager.instance.Save();
         Application.Quit();
     }
 }

@@ -25,6 +25,7 @@ public class GameState : MonoBehaviour {
     public GameObject EncounterThing;
     private EncounterSystem m_enc;
     public float delay = 0;
+    private EncounterUI pew;
 
     void Awake()
     {
@@ -38,6 +39,7 @@ public class GameState : MonoBehaviour {
         m_tutorialdone = true;
         gameState = GAMESTATE.GS_START;
         m_enc = EncounterThing.GetComponent<EncounterSystem>();
+        pew = GameObject.FindGameObjectWithTag("UIEncounter").GetComponent<EncounterUI>();
 	}
 	
 	// Update is called once per frame
@@ -69,6 +71,7 @@ public class GameState : MonoBehaviour {
             case GAMESTATE.GS_DEFEAT:
                 BackgroundScroll.GetComponent<BackgroundScrolling>().b_Scrolling = false;
                 GameOverImage.SetActive(true);
+                pew.pause = true;
                 break;
             case GAMESTATE.GS_START:
                 BackgroundScroll.GetComponent<BackgroundScrolling>().b_Scrolling = false;

@@ -63,6 +63,7 @@
      <Compile Include="Assets\Scripts\TutorialScript.cs" />
      <Compile Include="Assets\Scripts\UI\ButtonScript.cs" />
      <Compile Include="Assets\Scripts\UI\DisplayUI.cs" />
+     <Compile Include="Assets\Scripts\UI\PauseScript.cs" />
      <Compile Include="Assets\Scripts\UI\ScoreScript.cs" />
      <None Include="Assets\Audio\pew\Read Me.txt" />
  <Reference Include="UnityEngine.UI">

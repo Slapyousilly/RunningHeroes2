@@ -263,6 +263,7 @@ public class PlayerScrpt : EntityBase {
                 playerAudio.clip = spell1;
             playerAudio.Play();
             anim.SetTrigger("SKILL1");
+            Debug.Log(skillsInstance.strikeMultiplier);
             int demDamage = Random.Range(m_Damage - m_DamageRng, m_Damage + m_DamageRng);
             AttackTarget((int)((float)demDamage * skillsInstance.strikeMultiplier), 0.2f);
         }
@@ -276,6 +277,7 @@ public class PlayerScrpt : EntityBase {
             //playerAudio.clip = spell2;
             playerAudio.PlayOneShot(spell2);
             anim.SetTrigger("SKILL2");
+            Debug.Log(skillsInstance.stunDur);
             StunTarget(skillsInstance.stunDur);
         }
         else
@@ -288,6 +290,7 @@ public class PlayerScrpt : EntityBase {
             playerAudio.clip = spell3;
             playerAudio.Play();
             // Put Defense Time
+            Debug.Log(skillsInstance.dmgRedDur);
             ToggleBarrier(skillsInstance.dmgRedDur);
         }
         else

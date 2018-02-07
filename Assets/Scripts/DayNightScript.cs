@@ -74,6 +74,10 @@ public class DayNightScript : MonoBehaviour {
         return dayPassed;
     }
 
+    public void SetDayTen()
+    {
+        dayPassed = 10;
+    }
     //void FixedUpdate()
     //{
 

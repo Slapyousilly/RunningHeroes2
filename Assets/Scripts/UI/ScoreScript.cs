@@ -9,15 +9,25 @@ public class ScoreScript : MonoBehaviour {
     public Text highScore;
     private DayNightScript scococo;
 
+
 	// Use this for initialization
 	void Start () {
         scoringPew = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
         scococo = GameObject.FindGameObjectWithTag("DayNight").GetComponent<DayNightScript>();
+        
 	}
 	
 	// Update is called once per frame
 	void Update () {
         highScore.text = "Highscore: " + scoringPew.HighScore;
-        currentScore.text = "Score: " + scococo.scoreEarned;
+        
+
+        if (scococo.scoreEarned >= scoringPew.HighScore)
+        {
+            scoringPew.HighScore = scococo.scoreEarned;
+            currentScore.text = "New Highscore! :" + scococo.scoreEarned;
+        }
+        else
+            currentScore.text = "Score: " + scococo.scoreEarned;
 	}
 }

@@ -44,6 +44,11 @@ public class EncounterUI : MonoBehaviour {
             Time.timeScale = 1.0f;
     }
 
+    public void pausingunpausing()
+    {
+        pause = !pause;
+    }
+
     public void InitialRun()
     {
         for (int i = 0; i < 5; i++)
@@ -76,7 +81,7 @@ public class EncounterUI : MonoBehaviour {
             GameObject UIUI = Instantiate(UIAdd) as GameObject; //, new Vector3(0, 0, 0), Quaternion.identity
             //UIUI.GetComponent<RectTransform>().transform.position = new Vector3(180, 82, 0);
             UIUI.transform.SetParent(this.gameObject.transform);
-            UIUI.transform.localPosition = new Vector3(130 + 50 * i, 165, 0);
+            UIUI.transform.localPosition = new Vector3(130 + 50 * i, 150, 0);
             UIUI.transform.localScale = new Vector3(0.7f, 0.7f, 0);
             UIUI.SetActive(true);
             UIShow.Add(UIUI);
@@ -132,7 +137,7 @@ public class EncounterUI : MonoBehaviour {
         GameObject uipewpewadd = demUI;
         GameObject UIUI = Instantiate(uipewpewadd) as GameObject; //, new Vector3(0, 0, 0), Quaternion.identity
         UIUI.transform.SetParent(this.gameObject.transform);
-        UIUI.transform.localPosition = new Vector3(130 + 50 * 5, 165, 0);
+        UIUI.transform.localPosition = new Vector3(130 + 50 * 5, 150, 0);
         UIUI.transform.localScale = new Vector3(0.7f, 0.7f, 0);
         UIUI.SetActive(true);
         UIShow.Add(UIUI);
@@ -150,7 +155,7 @@ public class EncounterUI : MonoBehaviour {
     {
         for (int i = 0; i < 5; i++)
         {
-            UIShow[i].transform.localPosition = new Vector3(130 + 50 * i, 165, 0);
+            UIShow[i].transform.localPosition = new Vector3(130 + 50 * i, 150, 0);
         }
     }
 }

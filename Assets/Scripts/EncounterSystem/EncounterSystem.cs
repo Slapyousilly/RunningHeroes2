@@ -36,6 +36,7 @@ public class EncounterSystem : MonoBehaviour {
     private int totalSpawn;
     public bool testtyy;
     public bool uhohuhohlowhp;
+    public bool wewewoww;
 
     private EncounterUI UIUIThing;
     private bool bgCreate;
@@ -119,6 +120,9 @@ public class EncounterSystem : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        if (m_Player.m_HP < m_Player.m_maxHP)
+            wewewoww = true;
+
         if (m_Player.m_lifeSpan <= 30.0f)
             uhohuhohlowhp = true;
         bossSpawnCheck();
@@ -233,9 +237,10 @@ public class EncounterSystem : MonoBehaviour {
     {
         GameObject go = Instantiate(Monster, new Vector3(10, -2.2f, 0), Quaternion.identity) as GameObject;
         EnemyScript scripty = go.GetComponent<EnemyScript>();
-        go.GetComponent<EnemyScript>().m_goldworth += (int)((double)baseGoldDrop * (0.1 * (double)totalSpawn));
-        go.GetComponent<EnemyScript>().SetMaxHealth(600 + (20 * totalSpawn));
-        go.GetComponent<EnemyScript>().SetHealth(600 + (20 * totalSpawn));
+        scripty.m_goldworth += (int)((double)baseGoldDrop * (0.4 * (double)totalSpawn));
+        scripty.SetMaxHealth(600 + (55 * totalSpawn));
+        scripty.SetHealth(600 + (55 * totalSpawn));
+        scripty.SetAttackDamage(50 + (totalSpawn * 7));
 
         Debug.Log(go.GetComponent<EnemyScript>().m_HP);
         //Debug.Log((int)((double)baseGoldDrop * (0.1 * (double)totalSpawn)));
@@ -246,9 +251,10 @@ public class EncounterSystem : MonoBehaviour {
     void createBoss()
     {
         GameObject go = Instantiate(Boss, new Vector3(10, -2.2f, 0), Quaternion.identity) as GameObject;
-        go.GetComponent<EnemyScript>().m_goldworth += 1400;
-        go.GetComponent<EnemyScript>().SetMaxHealth(3000 + (10 * totalSpawn));
-        go.GetComponent<EnemyScript>().SetHealth(3000 + (10 * totalSpawn));
+        go.GetComponent<EnemyScript>().m_goldworth += 2000 + ((baseGoldDrop / 2) * totalSpawn);
+        go.GetComponent<EnemyScript>().SetMaxHealth(5000 + (10 * totalSpawn));
+        go.GetComponent<EnemyScript>().SetHealth(5000 + (10 * totalSpawn));
+        go.GetComponent<EnemyScript>().SetAttackDamage(95 + (totalSpawn * 20));
         spawnCount++;
     }
 

@@ -7,6 +7,7 @@ public class EnemyScript : EntityBase {
     private Animator anim;//! Animator of Enemy to set bool/triggers in Updates
     public GameObject m_enemyHP;
     private Image m_HPSlider;
+    private Image m_SkillSlider;
     private bool is_Collided;
     private Rigidbody2D rb2D;
 
@@ -17,6 +18,13 @@ public class EnemyScript : EntityBase {
     public AudioClip orc;
     public AudioClip die;
     private float testfloat;
+
+    public float skillCharge;
+    private float maxSkillCharge = 2.0f;
+    private float nextSkillUser;
+    private float nextSkillUseMax = 5.0f;
+
+    public GameObject stunOBJ;
 	// Use this for initialization
 	void Start () {
         enemyAudio = GetComponent<AudioSource>();
@@ -27,9 +35,11 @@ public class EnemyScript : EntityBase {
         GameObject healthbar = Instantiate(m_enemyHP) as GameObject; //, new Vector3(0, 0, 0), Quaternion.identity
         healthbar.transform.SetParent(this.gameObject.transform);
 
-        m_HPSlider = GameObject.FindGameObjectWithTag("healthTest").GetComponent<Image>(); 
-            //m_enemyHP.GetComponentInChildren<Image>();
-
+        m_HPSlider = GameObject.FindGameObjectWithTag("healthTest").GetComponent<Image>();
+        m_SkillSlider = GameObject.FindGameObjectWithTag("SkillCharge").GetComponent<Image>();
+        //stunOBJ = GetComponentInChildren<GameObject>();
+        skillCharge = 0.0f;
+        nextSkillUser = 0.0f;
         state = GameObject.FindGameObjectWithTag("GameStateSystem").GetComponent<GameState>();
         m_isDead = false;
         //m_HP = 600;
@@ -52,6 +62,7 @@ public class EnemyScript : EntityBase {
 	void Update () {
         //m_HPSlider.fillAmount = 0.5f;
         m_HPSlider.fillAmount = ((float)m_HP / (float)m_maxHP);
+        m_SkillSlider.fillAmount = (skillCharge / maxSkillCharge);
         RunFSM();
         StunThing();
 	}
@@ -68,6 +79,22 @@ public class EnemyScript : EntityBase {
             {
                 if (!StunState())
                 {
+                    stunOBJ.SetActive(false);
+                    //skillChargeMax = maxSkillChargeMax;
+                    //nextSkillUser = nextSkillUseMax;
+                    if (nextSkillUser <= 0)
+                    {
+                        skillCharge += Time.deltaTime;
+                        if (skillCharge >= maxSkillCharge)
+                        {
+                            int demDamage = Random.Range(m_Damage - m_DamageRng, m_Damage + m_DamageRng);
+                            AttackTarget(demDamage, m_atkSpd);
+
+                            skillCharge = 0;                    // Skill reset
+                            nextSkillUser = nextSkillUseMax;    // Global Skill Reset
+                        }
+                    }
+
                     testfloat += Time.deltaTime;
                     if (testfloat >= m_atkSpd)
                     {
@@ -83,8 +110,14 @@ public class EnemyScript : EntityBase {
                     AttackTarget(m_atkSpd);
                 }
                 else
+                {
+                    stunOBJ.SetActive(true);
+                    skillCharge = 0;
+                    nextSkillUser = 4.0f;
                     Idle();
+                }
             }
+            nextSkillUser -= Time.deltaTime;
         }
         if (m_HP <= 0)
         {
